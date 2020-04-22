@@ -1,73 +1,26 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Watermelon extends NormalFruit{
 
-	@Override
-	public Enum<?> getObjectType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public int getXlocation() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getYlocation() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getMaxHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getInitialVelocity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getFallingVelocity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Boolean isSliced() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean hasMovedOffScreen() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void slice() {
-		// TODO Auto-generated method stub
+	public BufferedImage[] getBufferedImages() throws IOException {
+		BufferedImage [] fruitImages = new BufferedImage[2];
+		fruitImages[0] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
+		fruitImages[1] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
+		File image = new File("watermelon.png");
+		fruitImages[0] = ImageIO.read(image);
+		image = new File("slicedWatermelon.png");
+		fruitImages[1] = ImageIO.read(image);
+		return fruitImages;
 		
-	}
-
-	@Override
-	public void move(double time) {
-		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public BufferedImage[] getBufferedImages() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

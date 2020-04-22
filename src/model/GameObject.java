@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public interface GameObject{
 	/**
@@ -50,6 +51,6 @@ public interface GameObject{
 	 *@return at least two images of the object, one when it is
 sliced and one when it is not.
 	 */
-	public BufferedImage [] getBufferedImages();
+	public BufferedImage [] getBufferedImages() throws IOException;
 
 }
