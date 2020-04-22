@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="splashScreen" layoutY="-20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SplashScreenController">
+   <children>
+      <ImageView fitHeight="362.0" fitWidth="505.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Term%204/Programming%20II/Fruit%20ninja/4fcf9090692f886b16001068.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Term%204/Programming%20II/Fruit%20ninja/FruitNinJaLogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="175.0" layoutY="221.0" text="Loading..." textFill="WHITE">
+         <font>
+            <Font name="Segoe Print Bold" size="36.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="loadingBar" layoutX="113.0" layoutY="285.0" prefHeight="23.0" prefWidth="295.0" />
+   </children>
+</AnchorPane>
