@@ -36,7 +36,7 @@ public class SplashScreenController implements Initializable {
 					public void run() {
 						Parent root = null;
 						try {
-							root = FXMLLoader.load(getClass().getResource("/view/PlayerNameScreen.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/view/MainMenu.fxml"));
 
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
@@ -47,7 +47,7 @@ public class SplashScreenController implements Initializable {
 						Stage stage = new Stage();
 
 						stage.initStyle(StageStyle.UNDECORATED);
-						stage.setFullScreen(true);
+						//stage.setFullScreen(true);
 
 						stage.setScene(scene);
 						stage.show();
