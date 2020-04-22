@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="splashScreen" layoutY="-20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SplashScreenController">
+<AnchorPane fx:id="splashScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SplashScreenController">
    <children>
-      <ImageView fitHeight="362.0" fitWidth="505.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="358.0" fitWidth="519.0" layoutX="-14.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Term%204/Programming%20II/Fruit%20ninja/4fcf9090692f886b16001068.png" />
+            <Image url="@../../4fcf9090692f886b16001068.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="207.0" fitWidth="237.0" layoutX="134.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Term%204/Programming%20II/Fruit%20ninja/FruitNinJaLogo.png" />
+            <Image url="@../../FruitNinJaLogo.png" />
          </image>
       </ImageView>
       <Label layoutX="175.0" layoutY="221.0" text="Loading..." textFill="WHITE">
