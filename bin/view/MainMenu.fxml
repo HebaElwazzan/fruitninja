@@ -27,9 +27,9 @@
                   </ImageView>
                   <BorderPane layoutX="221.0" layoutY="64.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="771.0" prefWidth="906.0">
                      <top>
-                        <HBox focusTraversable="true" prefHeight="35.0" prefWidth="1203.0" spacing="50.0" BorderPane.alignment="CENTER">
+                        <HBox focusTraversable="true" prefHeight="54.0" prefWidth="906.0" spacing="50.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button blendMode="MULTIPLY" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Quit" textFill="#f20000" HBox.hgrow="ALWAYS">
+                              <Button blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Quit" textFill="#f20000" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Gang of Three" size="12.0" />
                                  </font>
@@ -77,14 +77,14 @@
                         </HBox>
                      </top>
                      <bottom>
-                        <VBox prefHeight="213.0" prefWidth="697.0" styleClass="bodybg" BorderPane.alignment="CENTER">
+                        <VBox prefHeight="152.0" prefWidth="506.0" styleClass="bodybg" BorderPane.alignment="CENTER">
                            <children>
                               <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="1347.0" text="Choose a game mode" textFill="#159413">
                                  <font>
                                     <Font name="Gang of Three" size="24.0" />
                                  </font>
                               </Label>
-                              <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="39.0" prefWidth="374.0" text="Arcade" textFill="#ff6900">
+                              <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="140.0" prefWidth="506.0" text="Arcade" textFill="#ff6900">
                                  <font>
                                     <Font name="Gang of Three" size="18.0" />
                                  </font>
@@ -95,7 +95,7 @@
                                     <ColorAdjust contrast="1.0" />
                                  </effect>
                               </Button>
-                              <Button alignment="CENTER" blendMode="DARKEN" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="49.0" prefWidth="567.0" text="Classic" textFill="#06cdd3">
+                              <Button alignment="CENTER" blendMode="DARKEN" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="113.0" prefWidth="506.0" text="Classic" textFill="#06cdd3">
                                  <font>
                                     <Font name="Gang of Three" size="18.0" />
                                  </font>
@@ -113,10 +113,13 @@
                            <padding>
                               <Insets bottom="50.0" />
                            </padding>
+                           <BorderPane.margin>
+                              <Insets left="200.0" right="200.0" />
+                           </BorderPane.margin>
                         </VBox>
                      </bottom>
                      <center>
-                        <ImageView blendMode="MULTIPLY" fitHeight="233.0" fitWidth="374.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                        <ImageView blendMode="MULTIPLY" fitHeight="424.0" fitWidth="597.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
                               <Image url="@../../FruitNinJaLogo.png" />
                            </image>
