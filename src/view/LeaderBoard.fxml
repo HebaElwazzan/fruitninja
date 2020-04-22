@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="453.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../4fcf9090692f886b16001068.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="154.0" layoutX="31.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../l1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="154.0" layoutX="376.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../l2%20.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="144.0" layoutX="36.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../l3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="184.0" layoutX="376.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ArcadeMode.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="55.0" fitWidth="253.0" layoutX="160.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../leader.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="256.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../back2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <VBox layoutX="27.0" layoutY="117.0" prefHeight="117.0" prefWidth="154.0" />
+      <VBox layoutX="40.0" layoutY="260.0" prefHeight="117.0" prefWidth="138.0" />
+      <VBox layoutX="374.0" layoutY="266.0" prefHeight="123.0" prefWidth="194.0" />
+      <VBox layoutX="373.0" layoutY="118.0" prefHeight="110.0" prefWidth="184.0" />
+   </children>
+</AnchorPane>
