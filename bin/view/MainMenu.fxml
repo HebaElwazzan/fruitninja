@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="763.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="763.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,52 +21,52 @@
                <children>
                   <ImageView fitHeight="899.0" fitWidth="1399.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0">
                      <image>
-                        <Image url="@../../4fcf9090692f886b16001068.jpg" />
+                        <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
                      </image>
                   </ImageView>
                   <BorderPane layoutX="221.0" layoutY="64.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="771.0" prefWidth="906.0">
                      <top>
                         <HBox focusTraversable="true" prefHeight="54.0" prefWidth="906.0" spacing="50.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Quit" textFill="#f20000" HBox.hgrow="ALWAYS">
+                              <Button fx:id="settingsButton" blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Settings" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="Gang of Three" size="12.0" />
+                                    <Font name="Gang of Three" size="23.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                                  <effect>
-                                    <SepiaTone />
+                                    <ColorAdjust contrast="1.0" />
                                  </effect>
                               </Button>
-                              <Button blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" text="Change Player" textFill="#ee0101" HBox.hgrow="ALWAYS">
+                              <Button fx:id="changePlayerButton" blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="142.0" text="Change Player" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="Gang of Three" size="12.0" />
+                                    <Font name="Gang of Three" size="23.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                                  <effect>
-                                    <SepiaTone />
+                                    <ColorAdjust contrast="1.0" />
                                  </effect>
                               </Button>
-                              <Button blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Help" textFill="#f20707" HBox.hgrow="ALWAYS">
+                              <Button fx:id="helpButton" blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Help" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="Gang of Three" size="12.0" />
+                                    <Font name="Gang of Three" size="23.0" />
                                  </font>
                                  <effect>
-                                    <SepiaTone />
+                                    <ColorAdjust contrast="1.0" />
                                  </effect>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                               </Button>
-                              <Button blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Settings" textFill="#e80404" HBox.hgrow="ALWAYS">
+                              <Button fx:id="quitButton" blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Quit" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="Gang of Three" size="12.0" />
+                                    <Font name="Gang of Three" size="23.0" />
                                  </font>
                                  <effect>
-                                    <SepiaTone />
+                                    <ColorAdjust contrast="1.0" />
                                  </effect>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
@@ -79,14 +78,14 @@
                      <bottom>
                         <VBox prefHeight="152.0" prefWidth="506.0" styleClass="bodybg" BorderPane.alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="1347.0" text="Choose a game mode" textFill="#159413">
+                              <Label alignment="CENTER" blendMode="MULTIPLY" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="1347.0" text="Choose a game mode" textFill="#078d05">
                                  <font>
-                                    <Font name="Gang of Three" size="24.0" />
+                                    <Font name="Gang of Three" size="50.0" />
                                  </font>
                               </Label>
-                              <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="140.0" prefWidth="506.0" text="Arcade" textFill="#ff6900">
+                              <Button fx:id="arcadeButton" alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="140.0" prefWidth="506.0" text="Arcade" textFill="#ff6900">
                                  <font>
-                                    <Font name="Gang of Three" size="18.0" />
+                                    <Font name="Gang of Three" size="50.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
@@ -95,9 +94,9 @@
                                     <ColorAdjust contrast="1.0" />
                                  </effect>
                               </Button>
-                              <Button alignment="CENTER" blendMode="DARKEN" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="113.0" prefWidth="506.0" text="Classic" textFill="#06cdd3">
+                              <Button fx:id="classicButton" alignment="CENTER" blendMode="DARKEN" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="113.0" prefWidth="506.0" text="Classic" textFill="#06cdd3">
                                  <font>
-                                    <Font name="Gang of Three" size="18.0" />
+                                    <Font name="Gang of Three" size="50.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
@@ -121,7 +120,7 @@
                      <center>
                         <ImageView blendMode="MULTIPLY" fitHeight="424.0" fitWidth="597.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../FruitNinJaLogo.png" />
+                              <Image url="@../../resources/images/FruitNinJaLogo.png" />
                            </image>
                         </ImageView>
                      </center>
