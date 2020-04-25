@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="leaderboards" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeaderboardsController">
    <children>
       <ImageView fitHeight="453.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../4fcf9090692f886b16001068.jpg" />
+            <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="66.0" fitWidth="154.0" layoutX="31.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../l1.png" />
+            <Image url="@../../resources/images/l1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="154.0" layoutX="376.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../l2%20.png" />
+            <Image url="@../../resources/images/l2%20.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="144.0" layoutX="36.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../l3.png" />
+            <Image url="@../../resources/images/l3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="54.0" fitWidth="184.0" layoutX="376.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../ArcadeMode.png" />
+            <Image url="@../../resources/images/ArcadeMode.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="55.0" fitWidth="253.0" layoutX="160.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../leader.png" />
+            <Image url="@../../resources/images/leader.png" />
          </image>
       </ImageView>
-      <Button blendMode="COLOR_DODGE" layoutX="256.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-radius: 20;">
+      <Button fx:id="backButton" blendMode="COLOR_DODGE" layoutX="256.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-background-radius: 20;">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../back2.png" />
+                  <Image url="@../../resources/images/back2.png" />
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

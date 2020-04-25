@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class PlayerNameScreenController implements Initializable{
 
 	@FXML
-	Button exitButton = new Button("Exit");
+	private Button exitButton = new Button("Exit");
 	
 	@FXML
 	private void exitButtonAction(){
