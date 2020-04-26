@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Game>
+	<Player>
+		<name>Omar Aboushousha</name>
+		<classicHighScore>150</classicHighScore>
+		<arcadeHighScore>200</arcadeHighScore>
+	</Player>
+</Game>

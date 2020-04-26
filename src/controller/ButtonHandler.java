@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +16,11 @@ public class ButtonHandler {
 	
 	private Button button;
 	private AnchorPane anchorPane;
+	
+	public static void quitButtonAction(ActionEvent event) {
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.close();
+	}
 		
 	public ButtonHandler(Button button, AnchorPane anchorPane) {
 		super();
