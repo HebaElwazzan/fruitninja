@@ -34,25 +34,23 @@ public class SplashScreenController implements Initializable {
 
 					@Override
 					public void run() {
-						Parent root = null;
 						try {
-							root = FXMLLoader.load(getClass().getResource("/view/MainMenu.fxml"));
+							Parent root = FXMLLoader.load(getClass().getResource("/view/UserManager.fxml"));
+							
+							Scene scene = new Scene(root);
+							Stage stage = new Stage();
 
+							stage.initStyle(StageStyle.UNDECORATED);
+							//stage.setFullScreen(true);
+
+							stage.setScene(scene);
+							stage.show();
+
+							splashScreen.getScene().getWindow().hide();
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
-						Scene scene = new Scene(root);
-						Stage stage = new Stage();
-
-						stage.initStyle(StageStyle.UNDECORATED);
-						//stage.setFullScreen(true);
-
-						stage.setScene(scene);
-						stage.show();
-
-						splashScreen.getScene().getWindow().hide();
 
 
 					}

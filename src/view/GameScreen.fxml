@@ -28,12 +28,12 @@
                            <children>
                               <Label text="0" textFill="#ffa800">
                                  <font>
-                                    <Font name="Gang of Three" size="89.0" />
+                                    <Font name="Gigi" size="89.0" />
                                  </font>
                               </Label>
                               <Label text="00:00" textFill="#ffa800" translateX="300.0">
                                  <font>
-                                    <Font name="Gang of Three" size="89.0" />
+                                    <Font name="Gigi" size="89.0" />
                                  </font>
                               </Label>
                               <ImageView fx:id="life1" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="460.0">
@@ -55,12 +55,12 @@
                         </HBox>
                      </top>
                      <bottom>
-                        <Button blendMode="COLOR_DODGE" mnemonicParsing="false" text="ii" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
+                        <Button blendMode="COLOR_DODGE" mnemonicParsing="false" text="II" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Gang of Three" size="30.0" />
                            </font>
                            <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                            <effect>
                               <Blend mode="MULTIPLY" />
