@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-import model.Game;
+import model.GameInfo;
 import model.Player;
 
 public class UserManagerController implements Initializable{
@@ -45,7 +45,7 @@ public class UserManagerController implements Initializable{
 	
 	public void guestButtonAction(ActionEvent event) {
 		Player player = new Player("Guest", 0, 0);
-		Game.getInstance().setCurrentPlayer(player);
+		GameInfo.getInstance().setCurrentPlayer(player);
 		ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
 	}
 	
@@ -53,7 +53,7 @@ public class UserManagerController implements Initializable{
 		if(listOfPlayers.getSelectionModel().getSelectedItem() == null) {
 			errorLabel.setText("Please choose a player name.");
 		} else {
-			Game.getInstance().setCurrentPlayer(Game.getInstance().getPlayers().get(listOfPlayers.getSelectionModel().getSelectedIndex()));
+			GameInfo.getInstance().setCurrentPlayer(GameInfo.getInstance().getPlayers().get(listOfPlayers.getSelectionModel().getSelectedIndex()));
 			ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
 		}
 	}
@@ -67,9 +67,9 @@ public class UserManagerController implements Initializable{
 				+ "-fx-border-style: solid;"
 				+ "-fx-border-width: 10;");
 		ListProperty<Player> listProperty = new SimpleListProperty<>();
-		listProperty.set(Game.getInstance().getPlayers());
+		listProperty.set(GameInfo.getInstance().getPlayers());
 		listOfPlayers.itemsProperty().bind(listProperty);
-		Game.getInstance();
+		GameInfo.getInstance();
 	}
 	
 	

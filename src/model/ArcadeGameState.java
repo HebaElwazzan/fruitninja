@@ -1,13 +1,13 @@
 package model;
 
-public class ArcadeGameState extends GameState {
+public class ArcadeGameState implements GameState {
 
 	
 	@Override
-	public void updateTime() {
-		Time time = new Time(1,0);
-		setTime(time);
-		this.getTime().startDecrementTime();
+	public void updateTime(Time time) {
+		time.setMinutes(1);
+		time.setSeconds(0);
+		time.startDecrementTime();
 		
 	}
 	

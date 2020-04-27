@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Game;
+import model.GameInfo;
 import model.Player;
 
 public class NewUserController implements Initializable {
@@ -40,7 +40,7 @@ public class NewUserController implements Initializable {
 					errorLabel.setText("Please enter a name.");
 				} else {
 					Player player = new Player(name, 0, 0);
-					Game.getInstance().getPlayers().add(player);
+					GameInfo.getInstance().getPlayers().add(player);
 					cancelButtonAction(event);
 				}
 	}

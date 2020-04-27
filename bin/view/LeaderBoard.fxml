@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1348.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeaderboardsController">
+   <children>
+      <ImageView fitHeight="906.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="253.0" layoutX="254.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/l1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="253.0" layoutX="936.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/l2%20.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="253.0" layoutX="254.0" layoutY="491.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/l3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="253.0" layoutX="936.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/ArcadeMode.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="129.0" fitWidth="429.0" layoutX="507.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/leader.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" blendMode="COLOR_DODGE" layoutX="655.0" layoutY="723.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="40.0" prefWidth="134.0" style="-fx-background-radius: 20;">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/back2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="levelOneLabel" alignment="CENTER" layoutX="139.0" layoutY="256.0" prefHeight="91.0" prefWidth="484.0" textAlignment="CENTER">
+         <font>
+            <Font name="Engravers MT" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="levelThreeLabel" alignment="CENTER" layoutX="139.0" layoutY="549.0" prefHeight="91.0" prefWidth="484.0" textAlignment="CENTER">
+         <font>
+            <Font name="Engravers MT" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="levelTwoLabel" alignment="CENTER" layoutX="821.0" layoutY="256.0" prefHeight="91.0" prefWidth="484.0" textAlignment="CENTER">
+         <font>
+            <Font name="Engravers MT" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="arcadeModeLabel" alignment="CENTER" layoutX="821.0" layoutY="549.0" prefHeight="91.0" prefWidth="484.0" textAlignment="CENTER">
+         <font>
+            <Font name="Engravers MT" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

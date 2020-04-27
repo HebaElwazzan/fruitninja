@@ -7,9 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-public class Game {
+public class GameInfo {
 
-	private static Game instance;
+	private static GameInfo instance;
 
 	private Player currentPlayer;
 
@@ -18,7 +18,7 @@ public class Game {
 
 	private ObservableList<Player> players;
 
-	private Game() {
+	private GameInfo() {
 		this.players = FXCollections.observableArrayList();
 
 		try {
@@ -30,13 +30,13 @@ public class Game {
 		}
 	}
 
-	public static void setInstance(Game game) {
+	public static void setInstance(GameInfo game) {
 		instance = game;
 	}
 
-	public static Game getInstance (){
+	public static GameInfo getInstance (){
 		if (instance == null)
-			instance = new Game();
+			instance = new GameInfo();
 		return instance;
 	}
 

@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import model.Game;
+import model.GameInfo;
 
 public class MainMenuController implements Initializable{
 
@@ -66,6 +66,6 @@ public class MainMenuController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		welcomeLabel.setText("Welcome, " + Game.getInstance().getCurrentPlayer().getName());
+		welcomeLabel.setText("Welcome, " + GameInfo.getInstance().getCurrentPlayer().getName());
 	}
 }

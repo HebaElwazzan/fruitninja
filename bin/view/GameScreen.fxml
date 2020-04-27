@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1348.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameScreenController">
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="1348.0">
+               <children>
+                  <ImageView fitHeight="899.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="221.0" layoutY="64.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="820.0" prefWidth="906.0">
+                     <top>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="0" textFill="#ffa800">
+                                 <font>
+                                    <Font name="Gigi" size="89.0" />
+                                 </font>
+                              </Label>
+                              <Label text="00:00" textFill="#ffa800" translateX="300.0">
+                                 <font>
+                                    <Font name="Gigi" size="89.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="life1" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="460.0">
+                                 <image>
+                                    <Image url="@../../resources/images/life.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="life2" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="465.0">
+                                 <image>
+                                    <Image url="@../../resources/images/life.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="life3" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="470.0">
+                                 <image>
+                                    <Image url="@../../resources/images/life.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </top>
+                     <bottom>
+                        <Button blendMode="COLOR_DODGE" mnemonicParsing="false" text="II" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Gang of Three" size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <Blend mode="MULTIPLY" />
+                           </effect>
+                        </Button>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

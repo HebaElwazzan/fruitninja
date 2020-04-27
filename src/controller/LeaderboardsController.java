@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import model.Game;
+import model.GameInfo;
 import model.Player;
 
 public class LeaderboardsController implements Initializable {
@@ -36,16 +36,16 @@ public class LeaderboardsController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Player player;
-		player = Game.getInstance().getLevelOneTopPlayer();
+		player = GameInfo.getInstance().getLevelOneTopPlayer();
 		levelOneLabel.setText(player.getName() + "\t" + player.getClassicHighScore());
 		
-		player = Game.getInstance().getLevelTwoTopPlayer();
+		player = GameInfo.getInstance().getLevelTwoTopPlayer();
 		levelTwoLabel.setText(player.getName() + "\t" + player.getClassicHighScore());
 		
-		player = Game.getInstance().getLevelThreeTopPlayer();
+		player = GameInfo.getInstance().getLevelThreeTopPlayer();
 		levelThreeLabel.setText(player.getName() + "\t" + player.getClassicHighScore());
 		
-		player = Game.getInstance().getArcadeModeTopPlayer();
+		player = GameInfo.getInstance().getArcadeModeTopPlayer();
 		arcadeModeLabel.setText(player.getName() + "\t" + player.getArcadeHighScore());
 
 	}

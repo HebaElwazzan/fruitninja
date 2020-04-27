@@ -11,11 +11,11 @@ import javafx.collections.ObservableList;
 import model.Player;
 /*
  * This class is used to store information from the xml file. 
- * It is then called from the singleton class Game to update the game information.
+ * It is then called from the singleton class GameInfo to update the game information.
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "Game")
+@XmlRootElement(name = "GameInfo")
 public class XmlGame {
 	
 	@XmlElement(name = "Player")

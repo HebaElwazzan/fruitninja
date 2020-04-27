@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import model.Game;
+import model.GameInfo;
 
 
 public class XMLFileHandler {
@@ -23,7 +23,7 @@ public class XMLFileHandler {
 	public static void saveFile(String filename) throws JAXBException {
 		
 		XmlGame xmlGame = new XmlGame();
-		xmlGame.setPlayers(Game.getInstance().getPlayers());
+		xmlGame.setPlayers(GameInfo.getInstance().getPlayers());
 
 		JAXBContext jaxbContext = JAXBContext.newInstance(XmlGame.class);
 		Marshaller marshaller = jaxbContext.createMarshaller();

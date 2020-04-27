@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1348.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserManagerController">
+   <children>
+      <ImageView fitHeight="899.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="1019.0" layoutY="205.0" prefHeight="357.0" prefWidth="274.0" spacing="50.0">
+         <children>
+            <Button fx:id="newUserButton" blendMode="COLOR_DODGE" mnemonicParsing="false" onAction="#newUserAction" prefHeight="64.0" prefWidth="215.0" style="-fx-background-radius: 30;" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/images/new%20user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="guestButton" blendMode="COLOR_DODGE" mnemonicParsing="false" onAction="#guestButtonAction" prefHeight="60.0" prefWidth="171.0" style="-fx-background-radius: 30;">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/images/guest.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="71.0" fitWidth="233.0" layoutX="334.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/players.png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="listOfPlayers" blendMode="OVERLAY" layoutX="277.0" layoutY="129.0" prefHeight="457.0" prefWidth="371.0" />
+      <Button fx:id="goButton" blendMode="COLOR_DODGE" layoutX="859.0" layoutY="715.0" mnemonicParsing="false" onAction="#goButtonAction" prefHeight="71.0" prefWidth="113.0" style="-fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/go.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="quitButton" blendMode="COLOR_DODGE" layoutX="59.0" layoutY="58.0" mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="71.0" prefWidth="113.0" style="-fx-background-radius: 50;" textFill="RED">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView blendMode="GREEN" fitHeight="40.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/quit.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label fx:id="errorLabel" layoutX="674.0" layoutY="616.0" prefHeight="91.0" prefWidth="484.0" textAlignment="CENTER">
+         <font>
+            <Font name="Engravers MT" size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

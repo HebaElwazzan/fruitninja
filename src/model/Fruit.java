@@ -1,11 +1,38 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public abstract class Fruit implements GameObject {
 	
+	/*
+	 * This method sets the score of the fruit sliced. It gets overrided if the fruit is a special one.
+	 */
+	public int getScoreOnSlicing() {
+		return 10;
+	}
+	
+	
+	/*
+	 * We could not understand what the proposed declaration meant by ENUM so for simplicity we changed it to GameObject
+	 * It serves to generate a random object of type fruit. It can be called at intervals.
+	 */
 	@Override
-	public Enum<?> getObjectType() {
-		// TODO Auto-generated method stub
-		return null;
+	public GameObject getObjectType() {
+		List<GameObject> listOfGameObjects = new ArrayList<>();
+		listOfGameObjects.add(new Apple());
+		listOfGameObjects.add(new Banana());
+		listOfGameObjects.add(new Watermelon());
+		listOfGameObjects.add(new SpecialFruit(new Apple()));
+		listOfGameObjects.add(new SpecialFruit(new Banana()));
+		listOfGameObjects.add(new SpecialFruit(new Banana()));
+		
+		Random random = new Random();
+		
+		return listOfGameObjects.get(random.nextInt(5));
+		
+		
 	}
 
 	@Override
