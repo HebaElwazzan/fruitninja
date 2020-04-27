@@ -18,6 +18,19 @@ public class Player {
 	@XmlElement(name = "arcadeHighScore")
 	private int arcadeHighScore = 0;
 	
+	public Player() {
+		
+	}
+	
+	public Player(String name, int classicHighScore, int arcadeHighScore) {
+		super();
+		this.name = name;
+		this.classicHighScore = classicHighScore;
+		this.arcadeHighScore = arcadeHighScore;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return name;

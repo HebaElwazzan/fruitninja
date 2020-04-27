@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,8 +42,7 @@ public class SplashScreenController implements Initializable {
 							Stage stage = new Stage();
 
 							stage.initStyle(StageStyle.UNDECORATED);
-							//stage.setFullScreen(true);
-
+							
 							stage.setScene(scene);
 							stage.show();
 

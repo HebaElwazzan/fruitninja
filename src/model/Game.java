@@ -11,13 +11,15 @@ public class Game {
 	
 	private static Game instance;
 	
+	Player currentPlayer;
+	
 	private ObservableList<Player> players;
 
 	private Game() {
 		this.players = FXCollections.observableArrayList();
 	
 		try {
-			XmlGame xmlGame = XMLFileHandler.LoadFile("E:\\Java\\Eclipse Workspace\\Assignment_3_6521_6492_6441\\fruitninja\\resources\\xml file\\GameData.xml");
+			XmlGame xmlGame = XMLFileHandler.LoadFile("GameData.xml");
 			this.players = xmlGame.getPlayers();
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
@@ -42,6 +44,16 @@ public class Game {
 	public void setPlayers(ObservableList<Player> players) {
 		this.players = players;
 	}
+
+	public Player getCurrentPlayer() {
+		return currentPlayer;
+	}
+
+	public void setCurrentPlayer(Player currentPlayer) {
+		this.currentPlayer = currentPlayer;
+	}
+	
+	
 
 
 }
