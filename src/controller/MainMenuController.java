@@ -7,98 +7,65 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import model.Game;
 
 public class MainMenuController implements Initializable{
-		
-	@FXML
-	private AnchorPane mainMenu;
-	
-	@FXML
-	private Button quitButton = new Button("Quit");
-	
-	@FXML
-	private Button changePlayerButton = new Button("Change Player");
-	
-	@FXML
-	private Button classicButton = new Button("Classic");
-	
-	@FXML
-	private Button arcadeButton = new Button("Arcade");
-	
-	@FXML
-	private Button leaderboardsButton = new Button("Leaderboards");
 
 	@FXML
-	private void quitButtonAction(){
-		ButtonHandler buttonHandler = new ButtonHandler(quitButton, mainMenu);
-		buttonHandler.ButtonAction();
-	}
+	private Button quitButton;
+
+	@FXML
+	private Button changePlayerButton;
 	
 	@FXML
-	private void changePlayerButtonAction(){
-		ButtonHandler buttonHandler = new ButtonHandler(changePlayerButton, mainMenu);
-		buttonHandler.ButtonAction();
-	}
-	
+	private Button helpButton;
+
 	@FXML
-	private void classicButtonAction(){
-		ButtonHandler buttonHandler = new ButtonHandler(classicButton, mainMenu);
-		buttonHandler.ButtonAction();
-	}
-	
+	private Button classicButton;
+
 	@FXML
-	private void arcadeButtonAction(){
-		ButtonHandler buttonHandler = new ButtonHandler(arcadeButton, mainMenu);
-		buttonHandler.ButtonAction();
-	}
-	
+	private Button arcadeButton;
+
 	@FXML
-	private void leaderboardsButtonAction(){
-		ButtonHandler buttonHandler = new ButtonHandler(leaderboardsButton, mainMenu);
-		buttonHandler.ButtonAction();
+	private Button leaderboardsButton;
+
+	@FXML
+	private Label welcomeLabel;
+
+	public void quitButtonAction(ActionEvent event){
+		ButtonHandler.quitButtonAction(event);
+	}
+
+	public void changePlayerButtonAction(ActionEvent event){
+		ButtonHandler.goToDifferentScreen(event, "/view/UserManager.fxml");
 	}
 	
+	public void helpButtonAction(ActionEvent event){
+		ButtonHandler.goToDifferentScreen(event, "");
+	}
+
+	public void classicButtonAction(ActionEvent event){
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen/fxml");
+		//TODO: modify game state to classic
+	}
+
+	public void arcadeButtonAction(ActionEvent event){
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen");
+		//TODO: modify game state to arcade
+	}
+
+	public void leaderboardsButtonAction(ActionEvent event){
+		ButtonHandler.goToDifferentScreen(event, "/view/LeaderBoard.fxml");
+	}
+	
+	public void soundButtonAction(ActionEvent event) {
+		ButtonHandler.soundButtonAction(event);
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		quitButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				quitButtonAction();				
-			}
-		});
-		
-		changePlayerButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				changePlayerButtonAction();				
-			}
-		});
-		
-		classicButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				classicButtonAction();				
-			}
-		});
-
-		arcadeButton.setOnAction(new EventHandler<ActionEvent>() {
-	
-			@Override
-			public void handle(ActionEvent event) {
-				arcadeButtonAction();		
-			}
-		});
-		
-		leaderboardsButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				leaderboardsButtonAction();		
-			}
-		});
+		welcomeLabel.setText("Welcome, " + Game.getInstance().getCurrentPlayer().getName());
 	}
 }

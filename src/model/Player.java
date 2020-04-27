@@ -29,7 +29,29 @@ public class Player {
 		this.arcadeHighScore = arcadeHighScore;
 	}
 
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getClassicHighScore() {
+		return classicHighScore;
+	}
+
+	public void setClassicHighScore(int classicHighScore) {
+		this.classicHighScore = classicHighScore;
+	}
+
+	public int getArcadeHighScore() {
+		return arcadeHighScore;
+	}
+
+	public void setArcadeHighScore(int arcadeHighScore) {
+		this.arcadeHighScore = arcadeHighScore;
+	}
 
 	@Override
 	public String toString() {
