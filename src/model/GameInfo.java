@@ -18,6 +18,7 @@ public class GameInfo {
 
 	private ObservableList<Player> players;
 
+	
 	private GameInfo() {
 		this.players = FXCollections.observableArrayList();
 
@@ -30,9 +31,15 @@ public class GameInfo {
 		}
 	}
 
-	public static void setInstance(GameInfo game) {
-		instance = game;
+	
+	public int getEndOfLevelOne() {
+		return endOfLevelOne;
 	}
+
+	public int getEndOfLevelTwo() {
+		return endOfLevelTwo;
+	}
+
 
 	public static GameInfo getInstance (){
 		if (instance == null)

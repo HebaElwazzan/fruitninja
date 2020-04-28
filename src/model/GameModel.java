@@ -17,6 +17,10 @@ public class GameModel {
 	public void updateTime() {
 		gameState.updateTime(time);
 	};
+	
+	public void updateLives() {
+		lives--;
+	}
 
 	public int getScore() {
 		return score;
@@ -31,6 +35,31 @@ public class GameModel {
 		this.time = time;
 	}
 
+
+	public double setVelocityOfObjects() {
+		return gameState.setVelocityOfObjects();
+	}
+
+	public int setMaxNumberOfSimultaneousFruits() {
+		return gameState.setMaxNumberOfSimultaneousFruits();
+	}
+
+	public int setMaxNumberOfSimultaneousBombs() {
+		return setMaxNumberOfSimultaneousBombs();
+	}
+
+	public int setTimeBetweenBombs() {
+		return setTimeBetweenBombs();
+	}
+	
+	public void setState() {
+		if (score <= GameInfo.getInstance().getEndOfLevelOne())
+			gameState = new LevelOneState();
+		else if (score <= GameInfo.getInstance().getEndOfLevelTwo())
+			gameState =  new LevelTwoState();
+		else 
+			gameState = new LevelThreeState();
+	}
 
 
 }

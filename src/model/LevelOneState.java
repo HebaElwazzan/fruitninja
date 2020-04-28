@@ -1,11 +1,25 @@
 package model;
 
-public class LevelOneState implements GameState{
+public class LevelOneState extends ClassicGameState{
 
 	@Override
-	public void updateTime(Time time) {
-		time.startIncrementTime();
-		
+	public double setVelocityOfObjects() {
+		return 100;
+	}
+
+	@Override
+	public int setMaxNumberOfSimultaneousFruits() {
+		return 3;
+	}
+
+	@Override
+	public int setMaxNumberOfSimultaneousBombs() {
+		return 1;
+	}
+
+	@Override
+	public int setTimeBetweenBombs() {
+		return 20;
 	}
 
 }

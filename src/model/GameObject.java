@@ -5,6 +5,10 @@ import java.io.IOException;
 
 public interface GameObject{
 	
+	
+	/*
+	 * this enumeration allows for random number generation which links to a random object generation
+	 */
 	enum ObjectType {
 		APPLE, BANANA, WATERMELON, SPECIAL_APPLE, SPECIAL_BANANA, SPECIAL_WATERMELON, DANGEROUS_BOMB, FATAL_BOMB;
 	}

@@ -1,36 +1,27 @@
 package model;
 
-public class ArcadeGameState implements GameState {
-
-	
-	@Override
-	public void updateTime(Time time) {
-		time.setMinutes(1);
-		time.setSeconds(0);
-		time.startDecrementTime();
-		
-	}
+public class LevelTwoState extends ClassicGameState{
 
 	@Override
 	public double setVelocityOfObjects() {
-		return 100;
+		return 150;
 	}
 
 	@Override
 	public int setMaxNumberOfSimultaneousFruits() {
-		return 3;
+		return 4;
 	}
 
 	@Override
 	public int setMaxNumberOfSimultaneousBombs() {
-		return 1;
+		return 2;
 	}
 
 	@Override
 	public int setTimeBetweenBombs() {
-		return 20;
+		return 15;
 	}
 
-	
 
+	
 }
