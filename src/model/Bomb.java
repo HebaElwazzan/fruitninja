@@ -1,11 +1,15 @@
 package model;
 
+import java.util.Random;
+
+import model.GameObject.ObjectType;
+
 public abstract class Bomb implements GameObject{
 	
 	@Override
-	public Enum<?> getObjectType() {
-		// TODO Auto-generated method stub
-		return null;
+	public ObjectType getObjectType() {
+		Random random = new Random();
+		return ObjectType.values()[random.nextBoolean()? 6 : 7];
 	}
 
 	@Override

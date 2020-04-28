@@ -4,10 +4,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public interface GameObject{
+	
+	enum ObjectType {
+		APPLE, BANANA, WATERMELON, SPECIAL_APPLE, SPECIAL_BANANA, SPECIAL_WATERMELON, DANGEROUS_BOMB, FATAL_BOMB;
+	}
 	/**
 	 *@return the type of game object
 	 */
-	public GameObject getObjectType();
+	public ObjectType getObjectType();
 	/*
 	 *@return X location of game object
 	 */
