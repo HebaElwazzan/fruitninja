@@ -25,3 +25,5 @@
 /GameInfo.class
 /GameModel.class
 /LevelOneState.class
+/GameObject$ObjectType.class
+/GameObjectFactory.class

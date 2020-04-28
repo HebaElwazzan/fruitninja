@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -9,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import model.GameInfo;
 
 public class MainMenuController implements Initializable{
@@ -33,7 +36,17 @@ public class MainMenuController implements Initializable{
 
 	@FXML
 	private Label welcomeLabel;
+	
+	@FXML
+	private Button soundbButton;
+	
+	String path = System.getProperty("user.dir") + "/resources/sound/Fruit-Ninja-Theme-Song.mp3";
 
+	Media media = new Media(new File(path).toURI().toString());
+	
+	MediaPlayer mediaPlayer = new MediaPlayer(media);
+	
+	
 	public void quitButtonAction(ActionEvent event){
 		ButtonHandler.quitButtonAction(event);
 	}
@@ -61,11 +74,12 @@ public class MainMenuController implements Initializable{
 	}
 	
 	public void soundButtonAction(ActionEvent event) {
-		ButtonHandler.soundButtonAction(event);
+		ButtonHandler.soundButtonAction(event, mediaPlayer);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		welcomeLabel.setText("Welcome, " + GameInfo.getInstance().getCurrentPlayer().getName());
+		mediaPlayer.play();
 	}
 }
