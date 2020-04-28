@@ -1,4 +1,8 @@
+/.classpath
+/.project
 /Main/
 /controller/
+/font/
 /images/
 /model/
+/view/

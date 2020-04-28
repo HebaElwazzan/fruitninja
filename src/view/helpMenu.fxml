@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="899.0" prefWidth="1348.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="899.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/imageedit_5_3348536092.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1184.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/imageedit_5_3348536092.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1184.0" layoutY="735.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/imageedit_5_3348536092.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="735.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/imageedit_5_3348536092.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="626.0" layoutX="409.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/b2621c9247553784a7cb00849118710d.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="25.0" layoutY="289.0" text="*SLICE THE FRUIT TO EARN POINTS!" textFill="#f8f5f5">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="436.0" text="*YOU HAVE 3 LIVES, EACH TIME YOU MISS A FRUIT YOU LOSE A LIFE!" textFill="#f2eded">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="560.0" text="*IF YOU SLICE A BOMB, YOU LOSE!" textFill="#fcf8f8">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="582.0" layoutY="747.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="223.0" style="-fx-background-radius: 30;">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/main.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
