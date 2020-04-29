@@ -1,25 +1,27 @@
 package model;
 
-public class GameModel {
+public class GameModel extends Subject{
 	private GameState gameState;
 
 	private int score = 0;
 	private Time time;
 	private int lives = 3;
 
-	public GameModel() {
+	public GameModel(GameState gameState) {
+		this.gameState = gameState;
 		time = new Time();
 	}
 
 	public void updateScore(int incrementToScore) {
 		score += incrementToScore;
+		notifyAllObservers(new GameScreenLabel(gameState.toString(), time.toString(), lives, Integer.toString(score)));
 	}
 	public void updateTime() {
 		gameState.updateTime(time);
 	};
 	
-	public void updateLives() {
-		lives--;
+	public void updateLives(int livesDecrement) {
+		lives-= livesDecrement;
 	}
 
 	public int getScore() {
@@ -34,6 +36,8 @@ public class GameModel {
 	public void setTime(Time time) {
 		this.time = time;
 	}
+	
+	
 
 
 	public double setVelocityOfObjects() {
@@ -50,6 +54,11 @@ public class GameModel {
 
 	public int setTimeBetweenBombs() {
 		return setTimeBetweenBombs();
+	}
+	
+	
+	public GameState getState() {
+		return gameState;
 	}
 	
 	public void setState() {

@@ -9,7 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import model.ArcadeGameState;
 import model.GameInfo;
+import model.LevelOneState;
 
 public class MainMenuController implements Initializable{
 
@@ -47,13 +49,13 @@ public class MainMenuController implements Initializable{
 	}
 
 	public void classicButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen/fxml");
-		//TODO: modify game state to classic
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen.fxml");
+		GameScreenController.setGameState(new LevelOneState());
 	}
 
 	public void arcadeButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen");
-		//TODO: modify game state to arcade
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen.fxml");
+		GameScreenController.setGameState(new ArcadeGameState());
 	}
 
 	public void leaderboardsButtonAction(ActionEvent event){

@@ -22,6 +22,10 @@ public class LevelTwoState extends ClassicGameState{
 		return 15;
 	}
 
+	@Override
+	public String toString() {
+		return "Level Three";
+	}
 
 	
 }

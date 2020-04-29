@@ -45,13 +45,19 @@ public class GameActionsImplementation implements GameActions{
 		}
 	}
 
+	/*
+	 * to reset to initial state we only need to load the empty xml 
+	 * file. A memento design pattern will not be necessary in this case.
+	 */
 	@Override
 	public void ResetGame() {
-		/*
-		 * to reset to initial state we only need to reload xml file and delete any changes that may have occurred since the
-		 * beginning of the game session. A memento design pattern will not be necessary in this case.
-		 */
-		loadGame();
+		
+		try {
+			XMLFileHandler.LoadFile("ResetGameData.xml");
+		} catch (JAXBException e) {
+			ButtonHandler.alert();
+			e.printStackTrace();
+		}
 	}
 
 }
