@@ -25,3 +25,10 @@
 /GameInfo.class
 /GameModel.class
 /LevelOneState.class
+/GameObject$ObjectType.class
+/GameObjectFactory.class
+/GameObjectImplementation.class
+/LevelThreeState.class
+/LevelTwoState.class
+/ObjectAnimation$MouseDragHandler.class
+/ObjectAnimation.class

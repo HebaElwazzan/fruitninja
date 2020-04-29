@@ -21,5 +21,10 @@ public class LevelOneState extends ClassicGameState{
 	public int setTimeBetweenBombs() {
 		return 20;
 	}
+	
+	@Override
+	public String toString() {
+		return "Level One";
+	}
 
 }

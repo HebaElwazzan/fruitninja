@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1348.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameScreenController">
@@ -26,32 +30,65 @@
                      <top>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label text="0" textFill="#ffa800">
-                                 <font>
-                                    <Font name="Gigi" size="89.0" />
-                                 </font>
-                              </Label>
-                              <Label text="00:00" textFill="#ffa800" translateX="300.0">
-                                 <font>
-                                    <Font name="Gigi" size="89.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fx:id="life1" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="460.0">
-                                 <image>
-                                    <Image url="@../../resources/images/life.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="life2" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="465.0">
-                                 <image>
-                                    <Image url="@../../resources/images/life.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="life3" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" translateX="470.0">
-                                 <image>
-                                    <Image url="@../../resources/images/life.png" />
-                                 </image>
-                              </ImageView>
+                              <VBox prefHeight="183.0" prefWidth="276.0">
+                                 <children>
+                                    <Label fx:id="scoreLabel" text="0" textFill="#ffa800">
+                                       <font>
+                                          <Font name="Gigi" size="72.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="highscoreLabel" layoutX="10.0" layoutY="10.0" text="0" textFill="#ffa800">
+                                       <font>
+                                          <Font name="Gigi" size="45.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="183.0" prefWidth="447.0">
+                                 <children>
+                                    <Label fx:id="timerLabel" alignment="CENTER" prefHeight="112.0" prefWidth="532.0" text="00:00" textAlignment="CENTER" textFill="#ffa800">
+                                       <font>
+                                          <Font name="Gigi" size="72.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="levelLabel" alignment="CENTER" prefHeight="126.0" prefWidth="841.0" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Engravers MT" size="32.0" />
+                                       </font>
+                                       <textFill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop color="RED" />
+                                                <Stop color="WHITE" offset="1.0" />
+                                             </stops>
+                                          </LinearGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="life1" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/images/life.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="life2" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/images/life.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="life3" fitHeight="86.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../resources/images/life.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </HBox>
                      </top>
                      <bottom>

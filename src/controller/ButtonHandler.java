@@ -2,10 +2,13 @@ package controller;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -66,6 +69,7 @@ public class ButtonHandler {
 		}
 	}
 
+
 	public static void goToDifferentScreen(ActionEvent event, String fileName) {
 		
 		Parent root = null;
@@ -108,7 +112,17 @@ public class ButtonHandler {
 		}
 	}
 
-	public static void soundButtonAction(ActionEvent event) {
+	public static void soundButtonAction(ActionEvent event, MediaPlayer mediaPlayer) {
+		if(mediaPlayer.isMute())
+		{
+			mediaPlayer.setMute(false);
+		}
+		else
+		{
+			mediaPlayer.setMute(true);
+		}
 		
 	}
+
+
 }
