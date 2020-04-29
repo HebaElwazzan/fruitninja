@@ -89,19 +89,17 @@ public class ButtonHandler {
 		
 	}
 
-	public static void soundButtonAction(ActionEvent event) {
-		
-	}
-
 	public static void soundButtonAction(ActionEvent event, MediaPlayer mediaPlayer) {
 		if(mediaPlayer.isMute())
 		{
-			mediaPlayer.play();
+			mediaPlayer.setMute(false);
 		}
 		else
 		{
-			mediaPlayer.pause();
+			mediaPlayer.setMute(true);
 		}
 		
 	}
+
+
 }
