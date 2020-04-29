@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.media.MediaPlayer;
 import model.GameInfo;
 import model.Player;
 
@@ -22,6 +23,9 @@ public class UserManagerController implements Initializable{
 	
 	@FXML
 	private Button quitButton;
+	
+	@FXML
+	private Button deleteButton;
 	
 	@FXML 
 	private Button guestButton;
@@ -42,6 +46,16 @@ public class UserManagerController implements Initializable{
 	public void quitButtonAction(ActionEvent event) {
 			ButtonHandler.quitButtonAction(event);
 	}
+	
+	public void deleteButtonAction(ActionEvent event) {
+		if(listOfPlayers.getSelectionModel().getSelectedItem() == null) {
+			errorLabel.setText("Please choose a player name.");
+		} else {
+			GameInfo.getInstance().getPlayers().remove((listOfPlayers.getSelectionModel().getSelectedIndex()));
+			ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
+		}
+		
+}
 	
 	public void guestButtonAction(ActionEvent event) {
 		Player player = new Player("Guest", 0, 0);
