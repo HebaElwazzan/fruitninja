@@ -17,11 +17,13 @@ public class GameModel extends Subject{
 		notifyAllObservers(new GameScreenLabel(gameState.toString(), time.toString(), lives, Integer.toString(score)));
 	}
 	public void updateTime() {
-		gameState.updateTime(time);
+		gameState.updateTime(time, this);
+
 	};
 	
 	public void updateLives(int livesDecrement) {
 		lives-= livesDecrement;
+		notifyAllObservers(new GameScreenLabel(gameState.toString(), time.toString(), lives, Integer.toString(score)));
 	}
 
 	public int getScore() {
@@ -38,7 +40,13 @@ public class GameModel extends Subject{
 	}
 	
 	
+	public int getLives() {
+		return lives;
+	}
 
+	public void setLives(int lives) {
+		this.lives = lives;
+	}
 
 	public double setVelocityOfObjects() {
 		return gameState.setVelocityOfObjects();

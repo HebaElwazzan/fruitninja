@@ -1,17 +1,17 @@
 package model;
 
-import java.text.DecimalFormat;
-import java.util.Timer;
-import java.util.TimerTask;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.util.Duration;
 
 public class Time {
-	
+
 	private int minutes;
 	private int seconds;
-	private Timer timer;
-	private TimerTask task;
-	DecimalFormat decimalFormat;
-	
+	private Timeline timeline;
+
 	public int getMinutes() {
 		return minutes;
 	}
@@ -29,46 +29,67 @@ public class Time {
 	}
 
 	public Time() {
-		decimalFormat = new DecimalFormat("##");
+		timeline = new Timeline();
+		timeline.setCycleCount(Timeline.INDEFINITE);
 		minutes = 0;
 		seconds = 0;
 	}
-	
+
 	public Time(int minutes, int seconds) {
 		this.minutes = minutes;
 		this.seconds = seconds;
 	}
-	
-	public void startIncrementTime() {
-		task = new TimerTask() {
-			public void run() {
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public Timeline startIncrementTime(GameModel gameModel) {
+		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),new EventHandler() {
+			public void handle(Event event) {
 				seconds++;
 				if (seconds == 60) {
 					seconds = 0;
 					minutes++;
 				}
+				gameModel.notifyAllObservers(
+						new GameScreenLabel(gameModel.getState().toString(), 
+								gameModel.getTime().toString(), gameModel.getLives(), Integer.toString(gameModel.getScore())));
 			}
-		};
-		timer.scheduleAtFixedRate(task, 1000, 1000);
-		
+		}
+
+				));
+		timeline.playFromStart();
+		return timeline;
+
 	}
-	
-	public void startDecrementTime() {
-		task = new TimerTask() {
-			public void run() {
-				seconds--;
-				if (seconds == 60) {
-					seconds = 0;
-					minutes--;
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Timeline startDecrementTime(GameModel gameModel) {
+		
+		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),new EventHandler() {
+			public void handle(Event event) {
+
+				if(minutes == 0) {
+					seconds--;
+				}
+				gameModel.notifyAllObservers(
+						new GameScreenLabel(gameModel.getState().toString(), 
+								gameModel.getTime().toString(), gameModel.getLives(), Integer.toString(gameModel.getScore())));
+				if (seconds <= 0) {
+					timeline.stop();
+
 				}
 			}
-		};
-		timer.scheduleAtFixedRate(task, 1000, 1000);
+		}
+
+				));
+		timeline.playFromStart();
+		return timeline;
+
 	}
-	
+
+
 	@Override
 	public String toString() {
-		return decimalFormat.format(minutes) + ":" + decimalFormat.format(seconds);
+		return String.format("%02d", minutes) + ":" + String.format("%02d", seconds);
 	}
 
 }

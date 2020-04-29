@@ -2,13 +2,18 @@ package model;
 
 public class ArcadeGameState implements GameState {
 
-	
+
 	@Override
-	public void updateTime(Time time) {
-		time.setMinutes(1);
-		time.setSeconds(0);
-		time.startDecrementTime();
+	public void updateTime(Time time, GameModel gameModel) {
+		time.setMinutes(0);
+		time.setSeconds(59);
+		gameModel.notifyAllObservers(
+				new GameScreenLabel(gameModel.getState().toString(), 
+						gameModel.getTime().toString(), gameModel.getLives(), Integer.toString(gameModel.getScore())));
+
+		time.startDecrementTime(gameModel);
 		
+
 	}
 
 	@Override
@@ -35,6 +40,6 @@ public class ArcadeGameState implements GameState {
 	public String toString() {
 		return "Arcade Mode";
 	}
-	
+
 
 }

@@ -50,7 +50,7 @@ public class GameScreenController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		GameModel gameModel = new GameModel(gameState);
+		GameModel gameModel = new GameModel(GameScreenController.gameState);
 		ImageView[] lives = new ImageView[3];
 		lives[0] = life1;
 		lives[1] = life2;
@@ -66,6 +66,7 @@ public class GameScreenController implements Initializable {
 		gameModel.addObserver(livesObserver);
 		gameModel.addObserver(scoreObserver);
 		
+		gameModel.updateTime();		
 	}
 
 }
