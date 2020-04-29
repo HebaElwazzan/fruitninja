@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +18,7 @@ public class SplashScreenController implements Initializable {
 
 	@FXML
 	private AnchorPane splashScreen;
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		new SplashScreen().start();

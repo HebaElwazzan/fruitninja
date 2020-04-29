@@ -15,7 +15,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="1348.0">
+            <AnchorPane fx:id="gameScreen" prefHeight="200.0" prefWidth="1348.0">
                <children>
                   <ImageView fitHeight="899.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,7 +55,7 @@
                         </HBox>
                      </top>
                      <bottom>
-                        <Button blendMode="COLOR_DODGE" mnemonicParsing="false" text="II" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
+                        <Button fx:id="pauseButton" blendMode="COLOR_DODGE" mnemonicParsing="false" onAction="#pauseButtonAction" text="II" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Gang of Three" size="30.0" />
                            </font>

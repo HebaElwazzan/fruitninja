@@ -43,16 +43,16 @@ public class MainMenuController implements Initializable{
 	}
 	
 	public void helpButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "");
+		ButtonHandler.goToDifferentScreen(event, "/view/helpMenu.fxml");
 	}
 
 	public void classicButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen/fxml");
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen.fxml");
 		//TODO: modify game state to classic
 	}
 
 	public void arcadeButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen");
+		ButtonHandler.goToDifferentScreen(event, "/view/GameScreen.fxml");
 		//TODO: modify game state to arcade
 	}
 
