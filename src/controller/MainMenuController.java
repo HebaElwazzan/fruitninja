@@ -56,7 +56,7 @@ public class MainMenuController implements Initializable{
 	}
 	
 	public void helpButtonAction(ActionEvent event){
-		ButtonHandler.goToDifferentScreen(event, "");
+		ButtonHandler.goToDifferentScreen(event, "/view/helpMenu.fxml");
 	}
 
 	public void classicButtonAction(ActionEvent event){

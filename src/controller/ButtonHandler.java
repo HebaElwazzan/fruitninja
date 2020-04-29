@@ -88,20 +88,41 @@ public class ButtonHandler {
 		}
 		
 	}
+	
+	public static void returnButtonAction(ActionEvent event) {
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.close();
+	}
+	
+	public static void pauseButtonAction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(ButtonHandler.class.getResource("/view/PauseMenu.fxml"));
+			
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
 
-	public static void soundButtonAction(ActionEvent event) {
-		
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.initModality(Modality.APPLICATION_MODAL);
+
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			alert();
+			e.printStackTrace();
+		}
 	}
 
 	public static void soundButtonAction(ActionEvent event, MediaPlayer mediaPlayer) {
 		if(mediaPlayer.isMute())
 		{
-			mediaPlayer.play();
+			mediaPlayer.setMute(false);
 		}
 		else
 		{
-			mediaPlayer.pause();
+			mediaPlayer.setMute(true);
 		}
 		
 	}
+
+
 }
