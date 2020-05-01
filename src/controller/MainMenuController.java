@@ -84,7 +84,7 @@ public class MainMenuController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		welcomeLabel.setText("Welcome, " + GameInfo.getInstance().getCurrentPlayer().getName());
 		
-		if(mediaPlayer.getStatus()!=Status.PLAYING||mediaPlayer.getStatus()!=Status.PAUSED)
+		if(mediaPlayer.getStatus()!=Status.PLAYING && mediaPlayer.getStatus()!=Status.PAUSED) 
 		{
 			mediaPlayer.play();
 		}
