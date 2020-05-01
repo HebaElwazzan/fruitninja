@@ -17,7 +17,7 @@ public class PauseMenuController implements Initializable {
 	private Button returnButton;
 	
 	@FXML
-	private Button muteButton;
+	private Button soundButton;
 	
 	private static GameModel gameModel;
 	
@@ -29,6 +29,10 @@ public class PauseMenuController implements Initializable {
 	
 	public void returnButtonAction(ActionEvent event) {
 		ButtonHandler.returnButtonAction(event, gameModel);
+	}
+	
+	public void soundButtonAction(ActionEvent event) {
+		ButtonHandler.soundButtonAction(event, MainMenuController.mediaPlayer);
 	}
 	
 	@Override
