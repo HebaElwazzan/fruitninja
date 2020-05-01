@@ -1,9 +1,16 @@
 package model;
 
+import java.io.IOException;
 import java.util.Random;
 
 import javafx.animation.ParallelTransition;
 import javafx.animation.Animation.Status;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.GameObject.ObjectType;
 
 /*
@@ -11,22 +18,32 @@ import model.GameObject.ObjectType;
  * so some of the methods here simply call on the methods there or are simply useless
  */
 public abstract class GameObjectImplementation implements GameObject{
-	/*
-	 * those fields relate to the objectAnimation class which will set the animation of the object
-	 */
-	ObjectAnimation objectAnimation =  new ObjectAnimation(this);
-	ParallelTransition parallelTransition = objectAnimation.getParallelTransition();
+	
+	private boolean isSliced = false;
+	
+	@Override
+	public ObjectType getObjectType() {
+		if (this instanceof Apple) 
+			return ObjectType.APPLE;
+		else if (this instanceof Banana)
+			return ObjectType.BANANA;
+		else if (this instanceof Watermelon)
+			return ObjectType.WATERMELON;
+		else if (this instanceof DangerousBomb) 
+			return ObjectType.DANGEROUS_BOMB;
+		else if (this instanceof FatalBomb)
+			return ObjectType.FATAL_BOMB;
+		else return null;
+	}
 	
 
 	@Override
 	public int getXlocation() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int getYlocation() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -37,24 +54,31 @@ public abstract class GameObjectImplementation implements GameObject{
 
 	@Override
 	public int getInitialVelocity() {
-		return (int) parallelTransition.getRate();
+		return 0;
+		//return (int) parallelTransition.getRate();
 	}
 
 	@Override
 	public int getFallingVelocity() {
-		return (int) parallelTransition.getRate();
+		return 0;
+		//return (int) parallelTransition.getRate();
 	}
 
 	@Override
 	public Boolean isSliced() {
-		return objectAnimation.isSliced();
+		return isSliced;
+	}
+	
+	@Override
+	public void setSliced(boolean sliced) {
+		this.isSliced = sliced;
 	}
 
 	@Override
 	public Boolean hasMovedOffScreen() {
-		if(parallelTransition.getStatus() == Status.STOPPED) 
+		//if(parallelTransition.getStatus() == Status.STOPPED) 
 			return true;
-		return false;
+		//return false;
 	}
 
 	@Override
@@ -65,9 +89,12 @@ public abstract class GameObjectImplementation implements GameObject{
 
 	@Override
 	public void move(double time) { //the time elapsed here was not necessary
-		parallelTransition.play();
+		//parallelTransition.play();
 	}
-
+	
+	/*
+	 * This method returns a node of the object that can be added to the screen's root.
+	 */
 }
 
 

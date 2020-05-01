@@ -11,6 +11,25 @@ public class Time {
 	private int minutes;
 	private int seconds;
 	private Timeline timeline;
+	
+	public Time() {
+		timeline = new Timeline();
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		minutes = 0;
+		seconds = 0;
+	}
+
+	public Time(int minutes, int seconds) {
+		timeline = new Timeline();
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		this.minutes = minutes;
+		this.seconds = seconds;
+		
+	}
+	
+	public Timeline getTimeline() {
+		return timeline;
+	}
 
 	public int getMinutes() {
 		return minutes;
@@ -28,20 +47,8 @@ public class Time {
 		this.seconds = seconds;
 	}
 
-	public Time() {
-		timeline = new Timeline();
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		minutes = 0;
-		seconds = 0;
-	}
-
-	public Time(int minutes, int seconds) {
-		this.minutes = minutes;
-		this.seconds = seconds;
-	}
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Timeline startIncrementTime(GameModel gameModel) {
+	public void startIncrementTime(GameModel gameModel) {
 		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),new EventHandler() {
 			public void handle(Event event) {
 				seconds++;
@@ -57,12 +64,11 @@ public class Time {
 
 				));
 		timeline.playFromStart();
-		return timeline;
 
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Timeline startDecrementTime(GameModel gameModel) {
+	public void startDecrementTime(GameModel gameModel) {
 		
 		timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),new EventHandler() {
 			public void handle(Event event) {
@@ -82,11 +88,10 @@ public class Time {
 
 				));
 		timeline.playFromStart();
-		return timeline;
 
 	}
-
-
+	
+	
 	@Override
 	public String toString() {
 		return String.format("%02d", minutes) + ":" + String.format("%02d", seconds);

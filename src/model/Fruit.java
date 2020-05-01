@@ -21,15 +21,8 @@ public abstract class Fruit extends GameObjectImplementation {
 	}
 
 
-	/*
-	 * this method will generate a random integer between 0 and 5 and will be used by GameObjectFactory to create one of the 
-	 * objects from the enum ObjectType.
-	 */
-	@Override
-	public ObjectType getObjectType() {
-		Random random = new Random();
-		return ObjectType.values()[random.nextInt(5)];
-	}
+
+
 
 
 }

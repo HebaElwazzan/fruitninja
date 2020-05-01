@@ -4,12 +4,14 @@ import java.util.Random;
 
 import model.GameObject.ObjectType;
 
-public abstract class Bomb implements GameObject{
+public abstract class Bomb extends GameObjectImplementation{
 	
 	@Override
 	public ObjectType getObjectType() {
-		Random random = new Random();
+		return null;
+		/*Random random = new Random();
 		return ObjectType.values()[random.nextBoolean()? 6 : 7];
+		*/
 	}
 
 	@Override
