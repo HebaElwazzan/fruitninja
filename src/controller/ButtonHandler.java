@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -113,13 +114,15 @@ public class ButtonHandler {
 	}
 
 	public static void soundButtonAction(ActionEvent event, MediaPlayer mediaPlayer) {
-		if(mediaPlayer.isMute())
+		if(mediaPlayer.getStatus()==Status.PLAYING)
 		{
-			mediaPlayer.setMute(false);
+			mediaPlayer.pause();
+			
 		}
 		else
 		{
-			mediaPlayer.setMute(true);
+			mediaPlayer.play();
+			
 		}
 		
 	}

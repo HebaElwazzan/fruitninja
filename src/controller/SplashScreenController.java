@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,6 +26,12 @@ public class SplashScreenController implements Initializable {
 		new SplashScreen().start();
 	}
 
+	public static String path = System.getProperty("user.dir") + "/resources/sound/Fruit-Ninja-Theme-Song.mp3";
+
+	public static Media media = new Media(new File(path).toURI().toString());
+	
+	public static MediaPlayer mediaPlayer = new MediaPlayer(media);
+	
 	class SplashScreen extends Thread {
 		@Override
 		public void run() {
@@ -44,7 +52,7 @@ public class SplashScreenController implements Initializable {
 							
 							stage.setScene(scene);
 							stage.show();
-
+							
 							splashScreen.getScene().getWindow().hide();
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
