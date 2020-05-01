@@ -18,7 +18,7 @@ public class ArcadeGameState implements GameState {
 
 	@Override
 	public double setVelocityOfObjects() {
-		return 100;
+		return 2;
 	}
 
 	@Override

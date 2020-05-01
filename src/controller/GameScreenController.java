@@ -96,9 +96,9 @@ public class GameScreenController implements Initializable {
 		Image image = SwingFXUtils.toFXImage(gameObject.getBufferedImages()[0], null);
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
-		imageView.setOnMouseDragOver(new EventHandler<Event>() {
+		imageView.setOnMouseDragOver(new EventHandler<MouseEvent>() {
 			@Override
-			public void handle(Event event) {
+			public void handle(MouseEvent arg0) {
 				try {
 					Image image = SwingFXUtils.toFXImage(gameObject.getBufferedImages()[1], null);
 					imageView.setImage(image);
@@ -106,7 +106,7 @@ public class GameScreenController implements Initializable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				gameObject.setSliced(true);			
+				gameObject.setSliced(true);	
 			}
 		});
 		return imageView;
@@ -122,13 +122,13 @@ public class GameScreenController implements Initializable {
 		
 		
 		moveTo.setX(startingPosition); 
-		moveTo.setY(0); 
+		moveTo.setY(1000); 
  
 
 		quadCurveTo.setX(startingPosition + random.nextInt(300)); 
-		quadCurveTo.setY(-20); 
+		quadCurveTo.setY(1000); 
 		quadCurveTo.setControlX((startingPosition + quadCurveTo.getX())/2);  
-		quadCurveTo.setControlY(700);      
+		quadCurveTo.setControlY(-700);      
 
 		path.getElements().add(moveTo); 
 		path.getElements().add(quadCurveTo);
@@ -136,7 +136,7 @@ public class GameScreenController implements Initializable {
 		pathTransition.setNode(imageView);
 		pathTransition.setPath(path);
 		pathTransition.setRate(rate);
-		//pathTransition.setDuration(Duration.seconds(timeOfAnimation));
+		pathTransition.setDuration(Duration.millis(10000));
 		
 		RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1), imageView);
 		rotateTransition.setByAngle(360f);
@@ -176,19 +176,16 @@ public class GameScreenController implements Initializable {
 			root.getChildren().add(node);
 			parallelTransition.getChildren().add(animateNode(node, gameModel.getState().setVelocityOfObjects()));
 			parallelTransition.play();
-			
-			AnimationTimer animationTimer = new AnimationTimer() {
-				
-				@Override
-				public void handle(long now) {
-					gameModel.updateTime();
-				}
-			};
-			animationTimer.start();
+			gameModel.updateTime();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		root.setOnDragDetected(e -> {
+			root.startFullDrag();
+		});
 
 	}
 }
