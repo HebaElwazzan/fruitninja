@@ -1,6 +1,5 @@
 package model;
 
-import controller.ButtonHandler;
 import javafx.scene.image.ImageView;
 
 public class LivesObserver implements Observer{

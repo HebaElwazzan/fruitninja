@@ -1,10 +1,7 @@
 package model;
 
-import java.util.Random;
-
 import javafx.animation.ParallelTransition;
 import javafx.animation.Animation.Status;
-import model.GameObject.ObjectType;
 
 /*
  * Most of the methods' functionality from the GameObject interface were already implemented in ObjectAnimation

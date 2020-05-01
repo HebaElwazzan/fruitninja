@@ -3,7 +3,6 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -12,12 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import model.ArcadeGameState;
-import model.GameInfo;
 import model.GameModel;
 import model.GameState;
 import model.LevelObserver;
-import model.LevelOneState;
 import model.LivesObserver;
 import model.ScoreObserver;
 import model.TimerObserver;
@@ -30,12 +26,15 @@ public class GameScreenController implements Initializable {
 	@FXML
 	private AnchorPane gameScreen;
 	
+	private static Stage window;
+	
 	public void pauseButtonAction(ActionEvent event) {
+		window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		ButtonHandler.pauseButtonAction(event);
 	}
 	
-	public void closeGameScreen() {
-		
+	public static Stage getGameScreen() {
+		return window;
 	}
 	
 	@FXML
