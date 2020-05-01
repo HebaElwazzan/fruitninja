@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import model.GameModel;
 
 public class GameOverScreenController implements Initializable {
 	
@@ -13,7 +14,7 @@ public class GameOverScreenController implements Initializable {
 	private Button okButton;
 	
 	public void okButtonAction(ActionEvent event){
-		ButtonHandler.returnButtonAction(event);
+		ButtonHandler.returnButtonAction(event, new GameModel(null));
 		GameScreenController.getGameScreen().close();
 		ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
 	}

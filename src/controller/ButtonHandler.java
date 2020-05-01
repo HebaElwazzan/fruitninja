@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer.Status;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.GameModel;
 
 /*
  * This class's purpose is to handle most button events and to allow easy reusability of duplicate actions.
@@ -88,12 +89,13 @@ public class ButtonHandler {
 		
 	}
 	
-	public static void returnButtonAction(ActionEvent event) {
+	public static void returnButtonAction(ActionEvent event, GameModel gameModel) {
+		gameModel.getTime().getTimeline().play();
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.close();
 	}
 	
-	public static void pauseButtonAction(ActionEvent event) {
+	public static void pauseButtonAction(ActionEvent event, GameModel gameModel) {
 		try {
 			Parent root = FXMLLoader.load(ButtonHandler.class.getResource("/view/PauseMenu.fxml"));
 			
@@ -102,6 +104,8 @@ public class ButtonHandler {
 
 			stage.initStyle(StageStyle.UNDECORATED);
 			stage.initModality(Modality.APPLICATION_MODAL);
+			
+			PauseMenuController.sendGameModel(gameModel);
 
 			stage.setScene(scene);
 			stage.show();

@@ -62,10 +62,14 @@ public class GameScreenController implements Initializable {
 	private List<ImageView> gameObjectsImages = new ArrayList<>();
 
 	private static GameState gameState;
+	GameModel gameModel;
 
 	public void pauseButtonAction(ActionEvent event) {
 		window = (Stage)((Node)event.getSource()).getScene().getWindow();
-		ButtonHandler.pauseButtonAction(event);
+		ButtonHandler.pauseButtonAction(event, gameModel);
+		
+		//pause game (time and objects being thrown)
+		gameModel.getTime().getTimeline().pause();
 	}
 
 	public static Stage getGameScreen() {
@@ -79,7 +83,7 @@ public class GameScreenController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		GameModel gameModel = new GameModel(GameScreenController.gameState);
+		gameModel = new GameModel(GameScreenController.gameState);
 		ImageView[] lives = new ImageView[3];
 		lives[0] = life1;
 		lives[1] = life2;
@@ -95,10 +99,17 @@ public class GameScreenController implements Initializable {
 		gameModel.addObserver(livesObserver);
 		gameModel.addObserver(scoreObserver);
 
+		//Start the timer according to game mode:
 		gameModel.updateTime();
-		GameObjectImplementation apple = new Apple();
-		root.getChildren().add(apple.getImageView());
-		apple.move(gameModel.setVelocityOfObjects());
+		
+		//Create random objects at time intervals (the density and speed rely on the game state)
+
+		//Add objects to the array which will be added to the root 
+		
+		//Update game data when an object is sliced or a bomb is detonated
+		
+		//Game over if time runs out in arcade mode or if all lives are lost in classic
+		
 
 		root.setOnDragDetected(e -> {
 			root.startFullDrag();
