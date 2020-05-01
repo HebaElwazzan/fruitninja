@@ -35,18 +35,9 @@ public class GameScreenController implements Initializable {
 
 	@FXML
 	private AnchorPane gameScreen;
-	
+
 	private static Stage window;
-	
-	public void pauseButtonAction(ActionEvent event) {
-		window = (Stage)((Node)event.getSource()).getScene().getWindow();
-		ButtonHandler.pauseButtonAction(event);
-	}
-	
-	public static Stage getGameScreen() {
-		return window;
-	}
-	
+
 	@FXML
 	private Label scoreLabel;
 
@@ -67,17 +58,21 @@ public class GameScreenController implements Initializable {
 
 	@FXML
 	private ImageView life3;
-	
+
 	private List<ImageView> gameObjectsImages = new ArrayList<>();
 
 	private static GameState gameState;
-	
-	public void pauseButtonAction( ) {
-		
-	}
-	
 
-	
+	public void pauseButtonAction(ActionEvent event) {
+		window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		ButtonHandler.pauseButtonAction(event);
+	}
+
+	public static Stage getGameScreen() {
+		return window;
+	}
+
+
 	public static void setGameState(GameState gameState) {
 		GameScreenController.gameState = gameState;
 	}
@@ -100,14 +95,11 @@ public class GameScreenController implements Initializable {
 		gameModel.addObserver(livesObserver);
 		gameModel.addObserver(scoreObserver);
 
-		//gameModel.updateTime();	
-
-		//createNode(GameObjectFactory.getObject(GameObjectFactory.createRandomFruit()));
 		gameModel.updateTime();
 		GameObjectImplementation apple = new Apple();
 		root.getChildren().add(apple.getImageView());
 		apple.move(gameModel.setVelocityOfObjects());
-		
+
 		root.setOnDragDetected(e -> {
 			root.startFullDrag();
 		});

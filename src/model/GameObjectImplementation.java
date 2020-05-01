@@ -95,12 +95,18 @@ public abstract class GameObjectImplementation implements GameObject{
 		try {
 			Image image = SwingFXUtils.toFXImage(this.getBufferedImages()[1], null);
 			imageView.setImage(image);
+			this.playSound();
 		} catch (IOException e) {
 			ButtonHandler.alert();
 			e.printStackTrace();
 		}
 		this.setSliced(true);
 	}
+
+	/*
+	 * This method gets overrided in both bomb and fruit classes so that each may play a distinct sound upon slicing
+	 */
+	public abstract void playSound();
 
 	@Override
 	public void move(double velocity) { 
