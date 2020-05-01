@@ -14,6 +14,7 @@ public class GameOverScreenController implements Initializable {
 	
 	public void okButtonAction(ActionEvent event){
 		ButtonHandler.returnButtonAction(event);
+		GameScreenController.getGameScreen().close();
 		ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
 	}
 

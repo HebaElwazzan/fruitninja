@@ -18,7 +18,7 @@
             <Image url="@../../resources/images/pause.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnButton" blendMode="COLOR_DODGE" layoutX="127.0" layoutY="84.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="54.0" prefWidth="92.0" style="-fx-background-radius: 30;">
+      <Button fx:id="returnButton" blendMode="COLOR_DODGE" layoutX="128.0" layoutY="117.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="54.0" prefWidth="92.0" style="-fx-background-radius: 30;">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,7 +33,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="quitButton" blendMode="COLOR_DODGE" layoutX="190.0" layoutY="157.0" mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="54.0" prefWidth="92.0" style="-fx-background-radius: 30;">
+      <Button fx:id="quitButton" blendMode="COLOR_DODGE" layoutX="189.0" layoutY="196.0" mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="54.0" prefWidth="92.0" style="-fx-background-radius: 30;">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,21 +47,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </Button>
-      <Button fx:id="muteButton" blendMode="COLOR_DODGE" layoutX="209.0" layoutY="232.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="33.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <graphic>
-            <ImageView fitHeight="46.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../resources/images/sound.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </graphic>
       </Button>
    </children>
 </AnchorPane>

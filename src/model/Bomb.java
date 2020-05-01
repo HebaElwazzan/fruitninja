@@ -1,10 +1,10 @@
 package model;
 
 import java.util.Random;
-
 import model.GameObject.ObjectType;
 
 public abstract class Bomb extends GameObjectImplementation{
+
 	
 	@Override
 	public ObjectType getObjectType() {

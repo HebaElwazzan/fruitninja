@@ -1,8 +1,9 @@
 package model;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.Animation.Status;
 import java.io.IOException;
 import java.util.Random;
-
 import javafx.animation.ParallelTransition;
 import javafx.animation.Animation.Status;
 import javafx.embed.swing.SwingFXUtils;

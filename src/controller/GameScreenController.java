@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.ArrayBlockingQueue;
-
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.ParallelTransition;
@@ -43,7 +42,6 @@ import model.GameObject;
 import model.GameObjectFactory;
 import model.GameState;
 import model.LevelObserver;
-import model.LevelOneState;
 import model.LivesObserver;
 import model.ScoreObserver;
 import model.TimerObserver;
@@ -60,7 +58,18 @@ public class GameScreenController implements Initializable {
 
 	@FXML
 	private AnchorPane gameScreen;
-
+	
+	private static Stage window;
+	
+	public void pauseButtonAction(ActionEvent event) {
+		window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		ButtonHandler.pauseButtonAction(event);
+	}
+	
+	public static Stage getGameScreen() {
+		return window;
+	}
+	
 	@FXML
 	private Label scoreLabel;
 

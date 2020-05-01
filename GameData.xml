@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><GameInfo><Player><name>john</name><classicHighScore>0</classicHighScore><arcadeHighScore>0</arcadeHighScore></Player><Player><name>Shousha</name><classicHighScore>0</classicHighScore><arcadeHighScore>0</arcadeHighScore></Player></GameInfo>
+=======
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><GameInfo><Player><name>john</name><classicHighScore>0</classicHighScore><arcadeHighScore>0</arcadeHighScore></Player></GameInfo>
+>>>>>>> 63fa8fa9fc71ef32d562dfb6ec05eb276413c097
