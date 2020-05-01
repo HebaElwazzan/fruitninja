@@ -14,9 +14,11 @@ public class FatalBomb extends Bomb{
 		BufferedImage [] fruitImages = new BufferedImage[2];
 		fruitImages[0] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
 		fruitImages[1] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
-		File image = new File("E:\\Java\\EclipseWorkspace\\Assignment_3_6521_6492_6441\\fruitninja\\resources\\images\\fatalBomb.png");
+		String path = System.getProperty("user.dir") + "/resources/images/fatalBomb.png";
+		File image = new File(path);
 		fruitImages[0] = ImageIO.read(image);
-		image = new File("E:\\Java\\EclipseWorkspace\\Assignment_3_6521_6492_6441\\fruitninja\\resources\\images\\bombDetonated.png");
+		path = System.getProperty("user.dir") + "/resources/images/bombDetonated.png";
+		image = new File(path);
 		fruitImages[1] = ImageIO.read(image);
 		return fruitImages;
 	}

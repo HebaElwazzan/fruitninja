@@ -3,6 +3,8 @@ package model;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import javafx.scene.Node;
+
 public interface GameObject{
 	
 
@@ -53,8 +55,14 @@ public interface GameObject{
 		@param deltaTime: time elapsed since the object is thrown
 							it is used calculate the new position of
 							fruit object.
+	NOTE: We made alterations to this method as we used path transitions instead of keyframes as proposed
+	 it gave us a chance to use the QuadCurveTo class and make a nicer looking animation
+	 The time parameter was therefore unnecessary
+	 We added a velocity parameter instead so that we can send it different velocities depending on the game model
+	 as speed changes according to which level or mode the player is in
+	 
 	 */
-	public void move(double time);
+	public void move(double velocity); 
 	/*
 	 *@return at least two images of the object, one when it is
 sliced and one when it is not.

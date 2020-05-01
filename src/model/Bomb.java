@@ -63,7 +63,7 @@ public abstract class Bomb extends GameObjectImplementation{
 	}
 
 	@Override
-	public void move(double time) {
+	public void move(double velocity) {
 		// TODO Auto-generated method stub
 		
 	}

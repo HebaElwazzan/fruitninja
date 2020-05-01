@@ -1,27 +1,32 @@
 package model;
 
+import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
-import javafx.animation.Animation.Status;
+import javafx.animation.PathTransition;
+import javafx.animation.RotateTransition;
 import java.io.IOException;
 import java.util.Random;
-import javafx.animation.ParallelTransition;
-import javafx.animation.Animation.Status;
+
+import controller.ButtonHandler;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.GameObject.ObjectType;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.QuadCurveTo;
+import javafx.util.Duration;
 
 /*
  * Most of the methods' functionality from the GameObject interface were already implemented in ObjectAnimation
  * so some of the methods here simply call on the methods there or are simply useless
  */
 public abstract class GameObjectImplementation implements GameObject{
-	
+
 	private boolean isSliced = false;
-	
+	private ImageView imageView = createNode();
+
 	@Override
 	public ObjectType getObjectType() {
 		if (this instanceof Apple) 
@@ -36,7 +41,14 @@ public abstract class GameObjectImplementation implements GameObject{
 			return ObjectType.FATAL_BOMB;
 		else return null;
 	}
-	
+
+
+	/*
+	 * this method returns an imageView that can be added to the game screen's root.
+	 */
+	public ImageView getImageView() {
+		return imageView;
+	}
 
 	@Override
 	public int getXlocation() {
@@ -50,26 +62,24 @@ public abstract class GameObjectImplementation implements GameObject{
 
 	@Override
 	public int getMaxHeight() {
-		return 700; //we set it by default to reach a height of 700
+		return 0;
 	}
 
 	@Override
 	public int getInitialVelocity() {
 		return 0;
-		//return (int) parallelTransition.getRate();
 	}
 
 	@Override
 	public int getFallingVelocity() {
 		return 0;
-		//return (int) parallelTransition.getRate();
 	}
 
 	@Override
 	public Boolean isSliced() {
 		return isSliced;
 	}
-	
+
 	@Override
 	public void setSliced(boolean sliced) {
 		this.isSliced = sliced;
@@ -77,25 +87,78 @@ public abstract class GameObjectImplementation implements GameObject{
 
 	@Override
 	public Boolean hasMovedOffScreen() {
-		//if(parallelTransition.getStatus() == Status.STOPPED) 
-			return true;
-		//return false;
+		return true;
 	}
 
 	@Override
 	public void slice() {
-		// this action is implemented inside the ObjectAnimat
-
+		try {
+			Image image = SwingFXUtils.toFXImage(this.getBufferedImages()[1], null);
+			imageView.setImage(image);
+		} catch (IOException e) {
+			ButtonHandler.alert();
+			e.printStackTrace();
+		}
+		this.setSliced(true);
 	}
 
 	@Override
-	public void move(double time) { //the time elapsed here was not necessary
-		//parallelTransition.play();
+	public void move(double velocity) { 
+
+		Path path = new Path();
+		Random random = new Random();
+		int startingPosition = random.nextInt(1100);
+		PathTransition pathTransition = new PathTransition();
+		MoveTo moveTo = new MoveTo(); 
+		QuadCurveTo quadCurveTo = new QuadCurveTo();
+		moveTo.setX(startingPosition); 
+		moveTo.setY(1000); 
+
+
+		quadCurveTo.setX(startingPosition + random.nextInt(300)); 
+		quadCurveTo.setY(1000); 
+		quadCurveTo.setControlX((startingPosition + quadCurveTo.getX())/2);  
+		quadCurveTo.setControlY(-700);      
+
+		path.getElements().add(moveTo); 
+		path.getElements().add(quadCurveTo);
+
+		pathTransition.setNode(this.imageView);
+		pathTransition.setPath(path);
+		pathTransition.setRate(velocity);
+		pathTransition.setDuration(Duration.millis(10000));
+
+		RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1), this.imageView);
+		rotateTransition.setByAngle(360f);
+		rotateTransition.setCycleCount(Animation.INDEFINITE);
+
+		ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, pathTransition);
+		parallelTransition.play();
+
 	}
-	
+
 	/*
-	 * This method returns a node of the object that can be added to the screen's root.
+	 * method that creates a node out of a game object 
 	 */
+	public ImageView createNode() {
+		Image image;
+		ImageView newImage = new ImageView();
+		try {
+			image = SwingFXUtils.toFXImage(this.getBufferedImages()[0], null);
+			newImage.setImage(image);
+			newImage.setOnMouseDragOver(new EventHandler<MouseEvent>() {
+				@Override
+				public void handle(MouseEvent arg0) {
+					slice();
+				}
+			});
+		} catch (IOException e) {
+			ButtonHandler.alert();
+			e.printStackTrace();
+		}
+		
+		return newImage;
+	}
 }
 
 
