@@ -4,7 +4,7 @@ public class LevelThreeState extends ClassicGameState{
 
 	@Override
 	public double setVelocityOfObjects() {
-		return 200;
+		return 5;
 	}
 
 	@Override

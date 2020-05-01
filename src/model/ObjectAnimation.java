@@ -74,10 +74,14 @@ public class ObjectAnimation {
 		//pathTransition.setDuration(Duration.seconds(timeOfAnimation));
 		
 		RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1));
-		rotateTransition.setByAngle(180f);
+		rotateTransition.setByAngle(360f);
 		rotateTransition.setCycleCount(Animation.INDEFINITE);
-
+		
 		parallelTransition = new ParallelTransition(rotateTransition, pathTransition);
+	}
+	
+	public void setGameObject(GameObject gameObject) {
+		this.gameObject = gameObject;
 	}
 
 	public ParallelTransition getParallelTransition() {

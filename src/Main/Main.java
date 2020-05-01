@@ -11,13 +11,6 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application{
 	public static void main(String[] args) {
-		//File f = new File("Fruit-Ninja-Theme-Song.mp3");
-		//String absolute = f.getAbsolutePath();
-		//System.out.println("Original path: " + f.getPath());
-		//System.out.println("Absolute path: " + absolute);
-		//System.out.println(MainMenuController.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-		//String cwd = System.getProperty("user.dir");
-		//System.out.println("Current working directory: " + cwd);
 		launch(args);
 	}
 

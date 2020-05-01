@@ -9,8 +9,9 @@ public class GameActionsImplementation implements GameActions{
 
 	@Override
 	public GameObject createGameObject() {
-		// TODO Auto-generated method stub
-		return null;
+		GameObject gameObject = new Apple();
+		
+		return GameObjectFactory.getObject(gameObject.getObjectType());
 	}
 
 	@Override

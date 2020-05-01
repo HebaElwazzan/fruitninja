@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import model.ArcadeGameState;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import model.GameInfo;
 import model.LevelOneState;
 
@@ -40,11 +41,11 @@ public class MainMenuController implements Initializable{
 	@FXML
 	private Button soundbButton;
 	
-	String path = System.getProperty("user.dir") + "/resources/sound/Fruit-Ninja-Theme-Song.mp3";
+	public static String path = System.getProperty("user.dir") + "/resources/sound/Fruit-Ninja-Theme-Song.mp3";
 
-	Media media = new Media(new File(path).toURI().toString());
+	public static Media media = new Media(new File(path).toURI().toString());
 	
-	MediaPlayer mediaPlayer = new MediaPlayer(media);
+	public static MediaPlayer mediaPlayer = new MediaPlayer(media);
 	
 	
 	public void quitButtonAction(ActionEvent event){
@@ -82,6 +83,11 @@ public class MainMenuController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		welcomeLabel.setText("Welcome, " + GameInfo.getInstance().getCurrentPlayer().getName());
-		mediaPlayer.play();
+		
+		if(mediaPlayer.getStatus()!=Status.PLAYING||mediaPlayer.getStatus()!=Status.PAUSED)
+		{
+			mediaPlayer.play();
+		}
+		
 	}
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public interface GameObject{
 	
-	
+
 	/*
 	 * this enumeration allows for random number generation which links to a random object generation
 	 */
@@ -60,5 +60,6 @@ public interface GameObject{
 sliced and one when it is not.
 	 */
 	public BufferedImage [] getBufferedImages() throws IOException;
+	public void setSliced(boolean sliced);
 
 }
