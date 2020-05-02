@@ -32,7 +32,6 @@ public class LivesObserver implements Observer{
 		}
 		if (gameScreenLabel.getNumbeOfLives() == 0) {
 			lives[2].setVisible(false);
-			ButtonHandler.goToGameOverScreen();
 		}
 		
 	}

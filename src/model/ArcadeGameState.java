@@ -46,6 +46,14 @@ public class ArcadeGameState implements GameState {
 		return "Arcade Mode";
 	}
 
+	@Override
+	public void updateLives(int livesDecrement, int lives) {
+		if (livesDecrement == 3)
+			lives = 0;
+	lives = 3;
+	}
+
+
 	
 
 

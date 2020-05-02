@@ -132,8 +132,9 @@ public class ButtonHandler {
 		
 	}
 
-	public static void goToGameOverScreen() {
+	public static void goToGameOverScreen(GameModel gameModel) {
 		try {
+			GameOverScreenController.setGameModel(gameModel);
 			Parent root = FXMLLoader.load(ButtonHandler.class.getResource("/view/GameOverScreen.fxml"));
 			
 			Scene scene = new Scene(root);

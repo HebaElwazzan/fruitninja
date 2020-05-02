@@ -6,7 +6,11 @@ public abstract class ClassicGameState implements GameState{
 
 		time.startIncrementTime(gameModel);		    
 
+	}
+	@Override
+	public void updateLives(int livesDecrement, int lives) {
+		lives-= livesDecrement;
 
-}
+	}
 
 }

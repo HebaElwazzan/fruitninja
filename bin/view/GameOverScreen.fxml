@@ -6,8 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="470.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.GameOverScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameOverScreenController">
    <children>
       <ImageView blendMode="MULTIPLY" fitHeight="319.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +18,7 @@
             <Image url="@../../resources/images/GameOver.png" />
          </image>
       </ImageView>
-      <Button fx:id="okButton" blendMode="COLOR_DODGE" layoutX="195.0" layoutY="208.0" mnemonicParsing="false" style="-fx-background-radius: 30;">
+      <Button fx:id="okButton" blendMode="COLOR_DODGE" layoutX="195.0" layoutY="208.0" mnemonicParsing="false" onAction="#okButtonAction" style="-fx-background-radius: 30;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

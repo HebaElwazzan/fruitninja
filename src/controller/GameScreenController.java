@@ -27,7 +27,11 @@ import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import model.Apple;
+import model.Bomb;
+import model.DangerousBomb;
+import model.FatalBomb;
 import model.Fruit;
+import model.GameInfo;
 import model.GameModel;
 import model.GameObject;
 import model.GameObjectFactory;
@@ -79,6 +83,7 @@ public class GameScreenController implements Initializable {
 
 	private static GameState gameState;
 	GameModel gameModel;
+	private AnimationTimer animationTimer;
 	
 	public void pauseButtonAction(ActionEvent event) {
 		window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -108,11 +113,37 @@ public class GameScreenController implements Initializable {
 					else bonusImage.setVisible(false);
 					gameModel.updateScore(fruit.getScoreOnSlicing());
 					gameModel.getGameObjects().remove(i);
+					
+				} else if (fruit.hasMovedOffScreen()) {
+					gameModel.updateLives(1);
+					gameModel.getGameObjects().remove(i);
 				}
 				
 			}
+			else if (gameModel.getGameObjects().get(i) instanceof DangerousBomb) {
+				DangerousBomb bomb = (DangerousBomb) gameModel.getGameObjects().get(i);
+				if (bomb.isSliced()) {
+					gameModel.updateLives(1);
+					gameModel.updateScore(-5);
+					gameModel.getGameObjects().remove(i);
+				}
+			} else if (gameModel.getGameObjects().get(i) instanceof FatalBomb) {
+				FatalBomb bomb = (FatalBomb) gameModel.getGameObjects().get(i);
+				if (bomb.isSliced()) {
+					gameModel.updateLives(3);
+					gameModel.setGameOver(true);
+				}
+			}
 		}
 		
+		if (gameModel.getLives() == 0)
+			gameModel.setGameOver(true);
+		if (gameModel.isGameOver()) {
+			gameModel.stopCurrentAnimation();
+			GameOverScreenController.setGameScreen(root);
+			ButtonHandler.goToGameOverScreen(gameModel);
+			animationTimer.stop();
+		}
 	}
 
 
@@ -121,6 +152,10 @@ public class GameScreenController implements Initializable {
 		
 		gameModel = new GameModel(GameScreenController.gameState);
 		gameModel.setRoot(root);
+		if (gameModel.getState().toString().equals("Arcade Mode"))
+			highscoreLabel.setText("Highscore " + Integer.toString(GameInfo.getInstance().getCurrentPlayer().getArcadeHighScore()));
+		else highscoreLabel.setText("Highscore " + Integer.toString(GameInfo.getInstance().getCurrentPlayer().getClassicHighScore()));
+
 		bonusImage.setVisible(false);
 		ImageView[] lives = new ImageView[3];
 		lives[0] = life1;
@@ -150,7 +185,7 @@ public class GameScreenController implements Initializable {
 		gameModel.generateNewAnimation();
 
 		//Update game data when an object is sliced or a bomb is detonated
-		AnimationTimer animationTimer = new AnimationTimer() {
+		animationTimer = new AnimationTimer() {
 			
 			@Override
 			public void handle(long now) {

@@ -24,6 +24,8 @@ public class GameModel extends Subject{
 
 	private Timer fruitTimer = new Timer();
 	private Timer bombTimer = new Timer();
+	
+	private boolean gameOver = false;
 
 	private List<GameObjectImplementation> gameObjects = new ArrayList<>();
 
@@ -42,7 +44,7 @@ public class GameModel extends Subject{
 	};
 
 	public void updateLives(int livesDecrement) {
-		lives-= livesDecrement;
+		gameState.updateLives(livesDecrement, lives);
 		notifyAllObservers(new GameScreenLabel(gameState.toString(), time.toString(), lives, Integer.toString(score)));
 	}
 
@@ -98,6 +100,14 @@ public class GameModel extends Subject{
 
 	public List<GameObjectImplementation> getGameObjects() {
 		return this.gameObjects;
+	}
+	
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
+	}
+	
+	public boolean isGameOver() {
+		return this.gameOver;
 	}
 
 
