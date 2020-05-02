@@ -1,9 +1,6 @@
 package model;
 
 import java.io.File;
-import java.util.Random;
-
-import javafx.animation.ParallelTransition;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 

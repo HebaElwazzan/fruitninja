@@ -1,6 +1,8 @@
 package model;
 
 import javax.xml.bind.JAXBException;
+
+import controller.ButtonHandler;
 import controller.XMLFileHandler;
 import controller.XmlGame;
 import javafx.collections.FXCollections;
@@ -10,12 +12,9 @@ import javafx.collections.ObservableList;
 public class GameInfo {
 
 	private static GameInfo instance;
-
 	private Player currentPlayer;
-
 	private final int endOfLevelOne = 100;
 	private final int endOfLevelTwo = 200;
-
 	private ObservableList<Player> players;
 
 	
@@ -26,7 +25,7 @@ public class GameInfo {
 			XmlGame xmlGame = XMLFileHandler.LoadFile("GameData.xml");
 			this.players = xmlGame.getPlayers();
 		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
+			ButtonHandler.alert();
 			e.printStackTrace();
 		}
 	}

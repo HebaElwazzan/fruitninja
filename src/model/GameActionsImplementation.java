@@ -5,24 +5,23 @@ import javax.xml.bind.JAXBException;
 import controller.ButtonHandler;
 import controller.XMLFileHandler;
 
+/*
+ * this class was not used
+ */
 public class GameActionsImplementation implements GameActions{
 
 	@Override
 	public GameObject createGameObject() {
-		GameObject gameObject = new Apple();
-		
-		return GameObjectFactory.getObject(gameObject.getObjectType());
+		return null;
 	}
 
 	@Override
 	public void updateObjectsLocations() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void sliceObjects() {
-		// TODO Auto-generated method stub
 		
 	}
 

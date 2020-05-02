@@ -13,17 +13,23 @@ public class GameObjectFactory {
 	public static ObjectType createRandomFruit() {
 		Random random = new Random();
 		int number = random.nextInt(20);
-		if (number == 1) //there is a 1 in 20 chance of getting a bonus fruit
+		if (number == 10) //there is a 1 in 20 chance of getting a bonus fruit
 			return ObjectType.values()[random.nextBoolean()? 4 : 5];
 		return ObjectType.values()[random.nextInt(4)];
 		
 	}
 	
+	/*
+	 * likewise this method chooses randomly between 6 and 7 which are the bombs' enumeration index
+	 */
 	public static ObjectType createRandomBomb() {
 		Random random = new Random();
 		return ObjectType.values()[random.nextBoolean()? 6 : 7];
 	}
 	
+	/*
+	 * According to the enumeration sent, this method creates an object.
+	 */
 	public static GameObjectImplementation getObject(ObjectType objectType) {
 		switch(objectType) {
 		

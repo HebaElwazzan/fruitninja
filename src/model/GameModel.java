@@ -7,26 +7,19 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import controller.ButtonHandler;
-import controller.GameScreenController;
 import javafx.application.Platform;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import model.GameObject.ObjectType;
 
 public class GameModel extends Subject{
+	
 	private GameState gameState;
-
 	private BorderPane root;
-
 	private int score = 0;
 	private Time time;
 	private int lives = 3;
-
 	private Timer fruitTimer = new Timer();
 	private Timer bombTimer = new Timer();
-	
 	private boolean gameOver = false;
-
 	private List<GameObjectImplementation> gameObjects = new ArrayList<>();
 
 	public GameModel(GameState gameState) {

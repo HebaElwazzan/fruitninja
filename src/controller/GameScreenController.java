@@ -1,20 +1,10 @@
 package controller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import javax.xml.bind.JAXBException;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.ParallelTransition;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,25 +13,18 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import model.Apple;
-import model.Bomb;
 import model.DangerousBomb;
 import model.FatalBomb;
 import model.Fruit;
 import model.GameInfo;
 import model.GameModel;
-import model.GameObject;
-import model.GameObjectFactory;
-import model.GameObjectImplementation;
 import model.GameState;
 import model.LevelObserver;
 import model.LivesObserver;
 import model.ScoreObserver;
 import model.TimerObserver;
-import model.GameObject.ObjectType;
 
 
 public class GameScreenController implements Initializable {

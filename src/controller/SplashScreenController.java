@@ -63,7 +63,7 @@ public class SplashScreenController implements Initializable {
 					}
 				});
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				ButtonHandler.alert();
 				e.printStackTrace();
 			}
 

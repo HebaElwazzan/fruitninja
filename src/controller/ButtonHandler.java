@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Timer;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

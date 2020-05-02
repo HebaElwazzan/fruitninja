@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Watermelon extends NormalFruit{
+public class Watermelon extends Fruit{
 
 	public Watermelon() {
 		super();

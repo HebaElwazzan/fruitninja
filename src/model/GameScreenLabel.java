@@ -1,5 +1,8 @@
 package model;
-
+/*
+ * This class's objects are created to be sent from the observable (subject) class to the observers.
+ * It contains data needed to update the game.
+ */
 public class GameScreenLabel {
 	private String levelLabel;
 	private String timeLabel;

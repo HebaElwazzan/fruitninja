@@ -1,6 +1,5 @@
 package model;
 
-import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.RotateTransition;
@@ -55,7 +54,7 @@ public abstract class GameObjectImplementation implements GameObject{
 
 
 	/*
-	 * this method returns an imageView that can be added to the game screen's root.
+	 * this method returns an ImageView that can be added to the game screen's root.
 	 */
 	public ImageView getImageView() {
 		return imageView;
@@ -66,7 +65,7 @@ public abstract class GameObjectImplementation implements GameObject{
 	}
 	
 	/*
-	 * returns parallelTransition for object to be paused
+	 * returns parallelTransition for object to be paused or played
 	 */
 	public ParallelTransition getParallelTransition() {
 		return parallelTransition;
@@ -92,6 +91,8 @@ public abstract class GameObjectImplementation implements GameObject{
 		return 0;
 	}
 
+	//the velocities are decided according to game state
+	
 	@Override
 	public int getFallingVelocity() {
 		return 0;
@@ -101,19 +102,28 @@ public abstract class GameObjectImplementation implements GameObject{
 	public Boolean isSliced() {
 		return isSliced;
 	}
+	
+	/*
+	 * This method sets the objects sliced status. The method is called inside the mouse event handler.
+	 * The sliced status is used to check for updating score and for updating lives in classic (if not sliced 
+	 * and missed, the player loses a life)
+	 */
 
 	@Override
 	public void setSliced(boolean sliced) {
 		this.isSliced = sliced;
 	}
 
+	/*
+	 * This method is used for setting the hasMovedOffcreen property to the object. It is used 
+	 * in the setOnFinish handler for the animation.
+	 */
 	public void setHasMovedOffScreen(boolean hasMovedOffScreen) {
 		this.hasMovedOffScreen = hasMovedOffScreen;
 	}
 	
 	@Override
 	public Boolean hasMovedOffScreen() {
-		
 		return hasMovedOffScreen;
 	}
 
@@ -178,7 +188,7 @@ public abstract class GameObjectImplementation implements GameObject{
 	}
 
 	/*
-	 * method that creates a node out of a game object 
+	 * method that creates a node out of a game object so that we can add it to the game screen
 	 */
 	public ImageView createNode() {
 		Image image;
