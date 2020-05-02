@@ -15,7 +15,7 @@
    <children>
       <ImageView blendMode="MULTIPLY" fitHeight="319.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/images/4fcf9090692f886b16001068.jpg" />
+            <Image url="@../../resources/images/backgroundImage.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="130.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
