@@ -3,7 +3,6 @@ package model;
 import javax.xml.bind.JAXBException;
 
 import controller.ButtonHandler;
-import controller.XMLFileHandler;
 
 /*
  * this class was not used

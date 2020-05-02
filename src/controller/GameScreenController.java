@@ -25,6 +25,7 @@ import model.LevelObserver;
 import model.LivesObserver;
 import model.ScoreObserver;
 import model.TimerObserver;
+import model.XMLFileHandler;
 
 
 public class GameScreenController implements Initializable {
@@ -87,17 +88,23 @@ public class GameScreenController implements Initializable {
 	
 	public void gameUpdate() {
 		
+		for (int i = 0; i < gameModel.getSlicedObjects().size(); i++) {
+			if (gameModel.getSlicedObjects().get(i).hasMovedOffScreen())
+				gameModel.getSlicedObjects().remove(i);
+		}
+		
 		for (int i = 0; i < gameModel.getGameObjects().size(); i++) {
 			if (gameModel.getGameObjects().get(i) instanceof Fruit) {
-				Fruit fruit = (Fruit) gameModel.getGameObjects().get(i);
-				if (fruit.isSliced()) {
-					if(fruit.getScoreOnSlicing() > 10)
+				//Fruit fruit = (Fruit) gameModel.getGameObjects().get(i);
+				if (gameModel.getGameObjects().get(i).isSliced()) {
+					if(((Fruit)gameModel.getGameObjects().get(i)).getScoreOnSlicing() > 10)
 						bonusImage.setVisible(true);
 					else bonusImage.setVisible(false);
-					gameModel.updateScore(fruit.getScoreOnSlicing());
+					gameModel.updateScore(((Fruit)gameModel.getGameObjects().get(i)).getScoreOnSlicing());
+					gameModel.getSlicedObjects().add(gameModel.getGameObjects().get(i));
 					gameModel.getGameObjects().remove(i);
 					
-				} else if (fruit.hasMovedOffScreen()) {
+				} else if (gameModel.getGameObjects().get(i).hasMovedOffScreen()) {
 					gameModel.updateLives(1);
 					gameModel.getGameObjects().remove(i);
 				}
@@ -108,6 +115,7 @@ public class GameScreenController implements Initializable {
 				if (bomb.isSliced()) {
 					gameModel.updateLives(1);
 					gameModel.updateScore(-5);
+					gameModel.getSlicedObjects().add(gameModel.getGameObjects().get(i));
 					gameModel.getGameObjects().remove(i);
 				}
 			} else if (gameModel.getGameObjects().get(i) instanceof FatalBomb) {
