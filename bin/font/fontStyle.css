@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url('go3v2.ttf');
-}
-
-.quitButton {
-    -fx-font-family: "Roboto";
-}
