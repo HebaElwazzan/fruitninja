@@ -8,6 +8,6 @@ public interface GameState {
 	public abstract int setMaxNumberOfSimultaneousBombs();
 	public abstract int setTimeBetweenBombs();
 	public abstract int setTimeBetweenFruits();
-	public abstract void updateLives(int livesDecrement, int lives);
+	public abstract int updateLives(int livesDecrement, int lives);
 
 }

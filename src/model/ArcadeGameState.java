@@ -47,10 +47,11 @@ public class ArcadeGameState implements GameState {
 	}
 
 	@Override
-	public void updateLives(int livesDecrement, int lives) {
+	public int updateLives(int livesDecrement, int lives) {
 		if (livesDecrement == 3)
 			lives = 0;
 	lives = 3;
+	return lives;
 	}
 
 

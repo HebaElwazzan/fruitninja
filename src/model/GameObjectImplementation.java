@@ -9,6 +9,7 @@ import java.util.Random;
 
 import controller.ButtonHandler;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,6 +28,7 @@ public abstract class GameObjectImplementation implements GameObject{
 	private boolean isSliced;
 	private ImageView imageView;
 	ParallelTransition parallelTransition;
+	boolean hasMovedOffScreen = false;
 	
 
 	public GameObjectImplementation() {
@@ -105,11 +107,14 @@ public abstract class GameObjectImplementation implements GameObject{
 		this.isSliced = sliced;
 	}
 
+	public void setHasMovedOffScreen(boolean hasMovedOffScreen) {
+		this.hasMovedOffScreen = hasMovedOffScreen;
+	}
+	
 	@Override
 	public Boolean hasMovedOffScreen() {
-		if(getYlocation() > 900)
-			return true;
-		return false;
+		
+		return hasMovedOffScreen;
 	}
 
 	@Override
@@ -144,7 +149,7 @@ public abstract class GameObjectImplementation implements GameObject{
 
 
 		quadCurveTo.setX(startingPosition + random.nextInt(300)); 
-		quadCurveTo.setY(1000); 
+		quadCurveTo.setY(975); 
 		quadCurveTo.setControlX((startingPosition + quadCurveTo.getX())/2);  
 		quadCurveTo.setControlY(-700);      
 
@@ -162,6 +167,13 @@ public abstract class GameObjectImplementation implements GameObject{
 
 		parallelTransition = new ParallelTransition(rotateTransition, pathTransition);
 		parallelTransition.play();
+		pathTransition.setOnFinished(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				setHasMovedOffScreen(true);
+			}
+		});
 	
 	}
 

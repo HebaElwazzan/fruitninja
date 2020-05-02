@@ -44,7 +44,7 @@ public class GameModel extends Subject{
 	};
 
 	public void updateLives(int livesDecrement) {
-		gameState.updateLives(livesDecrement, lives);
+		lives = gameState.updateLives(livesDecrement, lives);
 		notifyAllObservers(new GameScreenLabel(gameState.toString(), time.toString(), lives, Integer.toString(score)));
 	}
 

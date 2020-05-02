@@ -1,7 +1,11 @@
 package model;
 
+import java.io.File;
+
 import controller.ButtonHandler;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class LivesObserver implements Observer{
 	
@@ -34,6 +38,8 @@ public class LivesObserver implements Observer{
 			lives[2].setVisible(false);
 		}
 		
+		
 	}
+		
 
 }

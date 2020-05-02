@@ -130,13 +130,17 @@ public class GameScreenController implements Initializable {
 			} else if (gameModel.getGameObjects().get(i) instanceof FatalBomb) {
 				FatalBomb bomb = (FatalBomb) gameModel.getGameObjects().get(i);
 				if (bomb.isSliced()) {
+					System.out.println(gameModel.getLives() +"inside gameUpdate bomb fatal");
+
 					gameModel.updateLives(3);
 					gameModel.setGameOver(true);
 				}
 			}
 		}
 		
-		if (gameModel.getLives() == 0)
+		if (gameModel.getLives() <= 0)
+			gameModel.setGameOver(true);
+		if(gameModel.getTime().getMinutes() == 0 && gameModel.getTime().getSeconds() == 0 && gameModel.getState().toString().equals("Arcade Mode"))
 			gameModel.setGameOver(true);
 		if (gameModel.isGameOver()) {
 			gameModel.stopCurrentAnimation();
