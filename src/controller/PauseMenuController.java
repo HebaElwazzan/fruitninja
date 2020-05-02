@@ -25,6 +25,7 @@ public class PauseMenuController implements Initializable {
 		ButtonHandler.returnButtonAction(event, gameModel);
 		GameScreenController.getGameScreen().close();
 		ButtonHandler.goToDifferentScreen(event, "/view/MainMenu.fxml");
+		gameModel.getTime().getTimeline().stop();
 	}
 	
 	public void returnButtonAction(ActionEvent event) {

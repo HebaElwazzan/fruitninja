@@ -11,10 +11,10 @@ public class GameInfo {
 
 	private static GameInfo instance;
 
-	private Player currentPlayer;
+	private Player currentPlayer = new Player();
 
-	private final int endOfLevelOne = 50;
-	private final int endOfLevelTwo = 150;
+	private final int endOfLevelOne = 100;
+	private final int endOfLevelTwo = 200;
 
 	private ObservableList<Player> players;
 

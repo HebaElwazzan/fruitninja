@@ -19,12 +19,6 @@ public class quitConfirmationController implements Initializable {
 	Button noButton;
 	
 public void yesButtonAction(ActionEvent event) {
-		try {
-			XMLFileHandler.saveFile("GameData.xml");
-		} catch (JAXBException e) {
-			e.printStackTrace();
-			ButtonHandler.alert();
-		}
 		System.exit(0);
 	}
 	

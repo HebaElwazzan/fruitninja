@@ -1,5 +1,9 @@
 package Main;
 
+import javax.xml.bind.JAXBException;
+
+import controller.ButtonHandler;
+import controller.XMLFileHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +16,16 @@ import javafx.stage.StageStyle;
 public class Main extends Application{
 	public static void main(String[] args) {
 		launch(args);
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+		    public void run() {
+		        try {
+					XMLFileHandler.saveFile("GameData.xml");
+				} catch (JAXBException e) {
+					ButtonHandler.alert();
+					e.printStackTrace();
+				}
+		    }
+		}));
 	}
 
 	@Override

@@ -8,18 +8,19 @@ import javafx.scene.media.MediaPlayer;
 import model.GameObject.ObjectType;
 
 public abstract class Bomb extends GameObjectImplementation{
-	
-	public static String path = System.getProperty("user.dir") + "/resources/sound/Bomb-explode.wav";
-	public static Media media = new Media(new File(path).toURI().toString());
-	public static MediaPlayer mediaPlayer = new MediaPlayer(media);
 
 	/*
 	 * this method plays a sound on the bomb getting detonated 
 	 */
 	@Override
 	public void playSound() {
-		mediaPlayer.play();
+		if (!isSliced()) {
+			String path = System.getProperty("user.dir") + "/resources/sound/Bomb-explode.wav";
+			Media media = new Media(new File(path).toURI().toString());
+			MediaPlayer mediaPlayer = new MediaPlayer(media);
+			mediaPlayer.play();
+		}	
 	}
-	
+
 
 }

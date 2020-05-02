@@ -7,6 +7,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Apple extends NormalFruit{
+	
+	public Apple() {
+		super();
+		setImageView();
+	}
 
 	@Override
 	public BufferedImage[] getBufferedImages() throws IOException {

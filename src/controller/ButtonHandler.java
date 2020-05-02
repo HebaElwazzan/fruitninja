@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Timer;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -90,7 +92,8 @@ public class ButtonHandler {
 	}
 	
 	public static void returnButtonAction(ActionEvent event, GameModel gameModel) {
-		gameModel.getTime().getTimeline().play();
+		
+		gameModel.generateNewAnimation();
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.close();
 	}
@@ -127,6 +130,24 @@ public class ButtonHandler {
 			
 		}
 		
+	}
+
+	public static void goToGameOverScreen() {
+		try {
+			Parent root = FXMLLoader.load(ButtonHandler.class.getResource("/view/GameOverScreen.fxml"));
+			
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			alert();
+			e.printStackTrace();
+		}
 	}
 
 

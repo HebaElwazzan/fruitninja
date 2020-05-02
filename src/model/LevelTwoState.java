@@ -4,12 +4,12 @@ public class LevelTwoState extends ClassicGameState{
 
 	@Override
 	public double setVelocityOfObjects() {
-		return 3;
+		return 1.5;
 	}
 
 	@Override
 	public int setMaxNumberOfSimultaneousFruits() {
-		return 4;
+		return 3;
 	}
 
 	@Override
@@ -21,10 +21,15 @@ public class LevelTwoState extends ClassicGameState{
 	public int setTimeBetweenBombs() {
 		return 15;
 	}
+	
+	@Override
+	public int setTimeBetweenFruits() {
+		return 2;
+	}
 
 	@Override
 	public String toString() {
-		return "Level Three";
+		return "Level Two";
 	}
 
 	

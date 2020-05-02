@@ -24,8 +24,17 @@ import javafx.util.Duration;
  */
 public abstract class GameObjectImplementation implements GameObject{
 
-	private boolean isSliced = false;
-	private ImageView imageView = createNode();
+	private boolean isSliced;
+	private ImageView imageView;
+	ParallelTransition parallelTransition;
+	
+
+	public GameObjectImplementation() {
+		super();
+		isSliced = false;
+		parallelTransition = new ParallelTransition();
+	}
+
 
 	@Override
 	public ObjectType getObjectType() {
@@ -49,15 +58,26 @@ public abstract class GameObjectImplementation implements GameObject{
 	public ImageView getImageView() {
 		return imageView;
 	}
+	
+	public void setImageView() {
+		imageView = createNode();
+	}
+	
+	/*
+	 * returns parallelTransition for object to be paused
+	 */
+	public ParallelTransition getParallelTransition() {
+		return parallelTransition;
+	}
 
 	@Override
 	public int getXlocation() {
-		return 0;
+		return (int) imageView.getX();
 	}
 
 	@Override
 	public int getYlocation() {
-		return 0;
+		return (int) imageView.getY();
 	}
 
 	@Override
@@ -87,7 +107,9 @@ public abstract class GameObjectImplementation implements GameObject{
 
 	@Override
 	public Boolean hasMovedOffScreen() {
-		return true;
+		if(getYlocation() > 900)
+			return true;
+		return false;
 	}
 
 	@Override
@@ -134,13 +156,13 @@ public abstract class GameObjectImplementation implements GameObject{
 		pathTransition.setRate(velocity);
 		pathTransition.setDuration(Duration.millis(10000));
 
-		RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1), this.imageView);
+		RotateTransition rotateTransition = new RotateTransition(Duration.millis(2000), this.imageView);
 		rotateTransition.setByAngle(360f);
-		rotateTransition.setCycleCount(Animation.INDEFINITE);
+		rotateTransition.setCycleCount(10);
 
-		ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, pathTransition);
+		parallelTransition = new ParallelTransition(rotateTransition, pathTransition);
 		parallelTransition.play();
-
+	
 	}
 
 	/*

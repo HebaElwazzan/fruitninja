@@ -8,6 +8,10 @@ import javax.imageio.ImageIO;
 
 public class DangerousBomb extends Bomb{
 
+	public DangerousBomb() {
+		super();
+		setImageView();
+	}
 
 	@Override
 	public BufferedImage[] getBufferedImages() throws IOException {

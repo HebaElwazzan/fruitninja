@@ -9,6 +9,11 @@ import javax.imageio.ImageIO;
 public class Banana extends NormalFruit{
 
 
+	public Banana() {
+		super();
+		setImageView();
+	}
+	
 	@Override
 	public BufferedImage[] getBufferedImages() throws IOException {
 		BufferedImage [] fruitImages = new BufferedImage[2];

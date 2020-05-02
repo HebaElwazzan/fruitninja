@@ -12,7 +12,10 @@ public class GameObjectFactory {
 	 */
 	public static ObjectType createRandomFruit() {
 		Random random = new Random();
-		return ObjectType.values()[random.nextInt(5)];
+		int number = random.nextInt(20);
+		if (number == 1) //there is a 1 in 20 chance of getting a bonus fruit
+			return ObjectType.values()[random.nextBoolean()? 4 : 5];
+		return ObjectType.values()[random.nextInt(4)];
 		
 	}
 	
@@ -21,7 +24,7 @@ public class GameObjectFactory {
 		return ObjectType.values()[random.nextBoolean()? 6 : 7];
 	}
 	
-	public static GameObject getObject(ObjectType objectType) {
+	public static GameObjectImplementation getObject(ObjectType objectType) {
 		switch(objectType) {
 		
 		case APPLE:
@@ -31,11 +34,11 @@ public class GameObjectFactory {
 		case WATERMELON:
 			return new Watermelon();
 		case SPECIAL_APPLE:
-			return new SpecialFruit(new Apple());
+			return new FruitWithBonus(new Apple());
 		case SPECIAL_BANANA:
-			return new SpecialFruit(new Banana());
+			return new FruitWithBonus(new Banana());
 		case SPECIAL_WATERMELON:
-			return new SpecialFruit(new Watermelon());
+			return new FruitWithBonus(new Watermelon());
 		case DANGEROUS_BOMB:
 			return new DangerousBomb();
 		case FATAL_BOMB:

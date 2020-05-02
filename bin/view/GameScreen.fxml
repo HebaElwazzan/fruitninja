@@ -92,17 +92,26 @@
                         </HBox>
                      </top>
                      <bottom>
-                        <Button fx:id="pauseButton" blendMode="COLOR_DODGE" mnemonicParsing="false" onAction="#pauseButtonAction" text="II" translateX="-425.0" translateY="-70.0" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font name="Gang of Three" size="30.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <Blend mode="MULTIPLY" />
-                           </effect>
-                        </Button>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="700.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="pauseButton" blendMode="COLOR_DODGE" mnemonicParsing="false" onAction="#pauseButtonAction" text="II">
+                                 <font>
+                                    <Font name="Gang of Three" size="30.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <Blend mode="MULTIPLY" />
+                                 </effect>
+                              </Button>
+                              <ImageView fx:id="bonusImage" fitHeight="48.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/images/bonus.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </bottom>
                   </BorderPane>
                </children>

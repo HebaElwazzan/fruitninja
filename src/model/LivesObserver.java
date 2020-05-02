@@ -1,5 +1,6 @@
 package model;
 
+import controller.ButtonHandler;
 import javafx.scene.image.ImageView;
 
 public class LivesObserver implements Observer{
@@ -24,14 +25,14 @@ public class LivesObserver implements Observer{
 	@Override
 	public void update(GameScreenLabel gameScreenLabel) {
 		if (gameScreenLabel.getNumbeOfLives() == 2) {
-			lives[0].setDisable(true);
+			lives[0].setVisible(false);
 		}
 		if (gameScreenLabel.getNumbeOfLives() == 1) {
-			lives[1].setDisable(true);
+			lives[1].setVisible(false);
 		}
 		if (gameScreenLabel.getNumbeOfLives() == 0) {
-			lives[2].setDisable(true);
-			//ButtonHandler.gameOverScreen();
+			lives[2].setVisible(false);
+			ButtonHandler.goToGameOverScreen();
 		}
 		
 	}

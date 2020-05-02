@@ -55,7 +55,7 @@ public class SplashScreenController implements Initializable {
 							
 							splashScreen.getScene().getWindow().hide();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
+							ButtonHandler.alert();
 							e.printStackTrace();
 						}
 

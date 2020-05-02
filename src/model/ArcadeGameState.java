@@ -35,11 +35,18 @@ public class ArcadeGameState implements GameState {
 	public int setTimeBetweenBombs() {
 		return 20;
 	}
+	
+	@Override
+	public int setTimeBetweenFruits() {
+		return 3;
+	}
 
 	@Override
 	public String toString() {
 		return "Arcade Mode";
 	}
+
+	
 
 
 }

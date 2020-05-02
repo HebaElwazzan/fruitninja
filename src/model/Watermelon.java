@@ -8,6 +8,10 @@ import javax.imageio.ImageIO;
 
 public class Watermelon extends NormalFruit{
 
+	public Watermelon() {
+		super();
+		setImageView();
+	}
 
 	@Override
 	public BufferedImage[] getBufferedImages() throws IOException {

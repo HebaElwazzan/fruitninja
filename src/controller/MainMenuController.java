@@ -87,6 +87,7 @@ public class MainMenuController implements Initializable{
 		if(mediaPlayer.getStatus()!=Status.PLAYING && mediaPlayer.getStatus()!=Status.PAUSED) 
 		{
 			mediaPlayer.play();
+			mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		}
 		
 	}

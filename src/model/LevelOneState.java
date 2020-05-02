@@ -23,6 +23,11 @@ public class LevelOneState extends ClassicGameState{
 	}
 	
 	@Override
+	public int setTimeBetweenFruits() {
+		return 4;
+	}
+	
+	@Override
 	public String toString() {
 		return "Level One";
 	}

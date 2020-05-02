@@ -4,7 +4,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.xml.bind.JAXBException;
+
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,16 +23,21 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import model.Apple;
+import model.Fruit;
 import model.GameModel;
+import model.GameObject;
+import model.GameObjectFactory;
 import model.GameObjectImplementation;
 import model.GameState;
 import model.LevelObserver;
 import model.LivesObserver;
 import model.ScoreObserver;
 import model.TimerObserver;
+import model.GameObject.ObjectType;
 
 
 public class GameScreenController implements Initializable {
@@ -59,17 +74,18 @@ public class GameScreenController implements Initializable {
 	@FXML
 	private ImageView life3;
 
-	private List<ImageView> gameObjectsImages = new ArrayList<>();
+	@FXML
+	private ImageView bonusImage;
 
 	private static GameState gameState;
 	GameModel gameModel;
-
+	
 	public void pauseButtonAction(ActionEvent event) {
 		window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		ButtonHandler.pauseButtonAction(event, gameModel);
-		
+
 		//pause game (time and objects being thrown)
-		gameModel.getTime().getTimeline().pause();
+		gameModel.stopCurrentAnimation();
 	}
 
 	public static Stage getGameScreen() {
@@ -80,10 +96,32 @@ public class GameScreenController implements Initializable {
 	public static void setGameState(GameState gameState) {
 		GameScreenController.gameState = gameState;
 	}
+	
+	public void gameUpdate() {
+		
+		for (int i = 0; i < gameModel.getGameObjects().size(); i++) {
+			if (gameModel.getGameObjects().get(i) instanceof Fruit) {
+				Fruit fruit = (Fruit) gameModel.getGameObjects().get(i);
+				if (fruit.isSliced()) {
+					if(fruit.getScoreOnSlicing() > 10)
+						bonusImage.setVisible(true);
+					else bonusImage.setVisible(false);
+					gameModel.updateScore(fruit.getScoreOnSlicing());
+					gameModel.getGameObjects().remove(i);
+				}
+				
+			}
+		}
+		
+	}
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		gameModel = new GameModel(GameScreenController.gameState);
+		gameModel.setRoot(root);
+		bonusImage.setVisible(false);
 		ImageView[] lives = new ImageView[3];
 		lives[0] = life1;
 		lives[1] = life2;
@@ -99,21 +137,47 @@ public class GameScreenController implements Initializable {
 		gameModel.addObserver(livesObserver);
 		gameModel.addObserver(scoreObserver);
 
+		if (gameModel.getState().toString().equals("Arcade Mode")) {
+			life1.setVisible(false);
+			life2.setVisible(false);
+			life3.setVisible(false);
+		}
+
 		//Start the timer according to game mode:
 		gameModel.updateTime();
-		
-		//Create random objects at time intervals (the density and speed rely on the game state)
 
-		//Add objects to the array which will be added to the root 
-		
+		//Create random objects at time intervals (the density and speed rely on the game state)
+		gameModel.generateNewAnimation();
+
 		//Update game data when an object is sliced or a bomb is detonated
-		
+		AnimationTimer animationTimer = new AnimationTimer() {
+			
+			@Override
+			public void handle(long now) {
+				gameUpdate();
+			}
+		};
+		animationTimer.start();
+
 		//Game over if time runs out in arcade mode or if all lives are lost in classic
-		
+
 
 		root.setOnDragDetected(e -> {
 			root.startFullDrag();
 		});
+		
+		//to ensure that program closes properly if closed unexpectedly from system instead of from quit button
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+		    public void run() {
+		        try {
+					XMLFileHandler.saveFile("GameData.xml");
+					gameModel.stopCurrentAnimation();
+				} catch (JAXBException e) {
+					ButtonHandler.alert();
+					e.printStackTrace();
+				}
+		    }
+		}));
 
 	}
 }
