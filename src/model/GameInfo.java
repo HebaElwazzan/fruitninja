@@ -11,7 +11,7 @@ public class GameInfo {
 
 	private static GameInfo instance;
 
-	private Player currentPlayer = new Player();
+	private Player currentPlayer;
 
 	private final int endOfLevelOne = 100;
 	private final int endOfLevelTwo = 200;

@@ -13,6 +13,7 @@ import javafx.scene.media.MediaPlayer.Status;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.GameInfo;
 import model.GameModel;
 
 /*
@@ -133,8 +134,20 @@ public class ButtonHandler {
 	}
 
 	public static void goToGameOverScreen(GameModel gameModel) {
+		
+		GameOverScreenController.setGameModel(gameModel);
+		if (GameInfo.getInstance().getCurrentPlayer() != null) {
+			if (gameModel.getState().toString().equals("Arcade Mode")) {
+				if (GameInfo.getInstance().getCurrentPlayer().getArcadeHighScore() < gameModel.getScore())
+					GameInfo.getInstance().getCurrentPlayer().setArcadeHighScore(gameModel.getScore());
+			} else {
+				if (GameInfo.getInstance().getCurrentPlayer().getClassicHighScore() < gameModel.getScore())
+					GameInfo.getInstance().getCurrentPlayer().setClassicHighScore(gameModel.getScore());
+			}
+		}
+		
 		try {
-			GameOverScreenController.setGameModel(gameModel);
+			
 			Parent root = FXMLLoader.load(ButtonHandler.class.getResource("/view/GameOverScreen.fxml"));
 			
 			Scene scene = new Scene(root);
