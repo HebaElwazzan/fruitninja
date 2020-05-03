@@ -21,6 +21,7 @@ public class GameModel extends Subject{
 	private Timer bombTimer = new Timer();
 	private boolean gameOver = false;
 	private List<GameObjectImplementation> gameObjects = new ArrayList<>();
+	private List<GameObjectImplementation> slicedObjects = new ArrayList<>();
 
 	public GameModel(GameState gameState) {
 		this.gameState = gameState;
@@ -93,6 +94,10 @@ public class GameModel extends Subject{
 
 	public List<GameObjectImplementation> getGameObjects() {
 		return this.gameObjects;
+	}
+	
+	public List<GameObjectImplementation> getSlicedObjects() {
+		return this.slicedObjects;
 	}
 	
 	public void setGameOver(boolean gameOver) {
@@ -168,6 +173,8 @@ public class GameModel extends Subject{
 		time.getTimeline().play();
 		for (int i = 0; i < gameObjects.size(); i++) 
 			gameObjects.get(i).getParallelTransition().play();
+		for (int i = 0; i < slicedObjects.size(); i++) 
+			slicedObjects.get(i).getParallelTransition().play();
 		this.fruitTimer = new Timer();
 		this.fruitTimer.scheduleAtFixedRate(this.generateFruitTask(), 0L, 1000*(this.setTimeBetweenFruits()) + 1);
 		this.bombTimer = new Timer();
@@ -180,6 +187,8 @@ public class GameModel extends Subject{
 	public void stopCurrentAnimation() {
 		for (int i = 0; i < this.gameObjects.size(); i++) 
 			gameObjects.get(i).getParallelTransition().pause();
+		for (int i = 0; i < this.slicedObjects.size(); i++) 
+			slicedObjects.get(i).getParallelTransition().pause();
 		this.time.getTimeline().pause();
 		this.fruitTimer.cancel();
 		this.bombTimer.cancel();

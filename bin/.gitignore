@@ -1,6 +1,10 @@
 /Main/
 /controller/
+<<<<<<< HEAD
 /loader/
 /model/
 /GameData.xml
 /ResetGameData.xml
+=======
+/model/
+>>>>>>> 17bbc67579a5b45bf22f4de1226dae06d850e175

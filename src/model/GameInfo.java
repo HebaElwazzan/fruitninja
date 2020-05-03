@@ -3,8 +3,6 @@ package model;
 import javax.xml.bind.JAXBException;
 
 import controller.ButtonHandler;
-import controller.XMLFileHandler;
-import controller.XmlGame;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

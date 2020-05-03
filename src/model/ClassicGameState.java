@@ -1,10 +1,8 @@
 package model;
 
 import java.io.File;
-
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import loader.ResourceLoader;
 
 public abstract class ClassicGameState implements GameState{
 	@Override
@@ -24,7 +22,6 @@ public abstract class ClassicGameState implements GameState{
 	public void playSound() {
 		String path = System.getProperty("user.dir") + "/resources/sound/Wrong-answer-sound-effect.mp3";
 		Media media = new Media(new File(path).toURI().toString());
-		//Media media = ResourceLoader.load("/resources/sound/Wrong-answer-sound-effect.mp3");
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.play();
 	}

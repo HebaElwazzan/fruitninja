@@ -14,7 +14,7 @@ public class GameObjectFactory {
 		Random random = new Random();
 		int number = random.nextInt(20);
 		if (number == 10) //there is a 1 in 20 chance of getting a bonus fruit
-			return ObjectType.values()[random.nextBoolean()? 4 : 5];
+			return ObjectType.values()[random.nextInt(3) + 3];
 		return ObjectType.values()[random.nextInt(4)];
 		
 	}
