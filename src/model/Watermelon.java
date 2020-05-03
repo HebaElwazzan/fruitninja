@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import loader.ResourceLoader;
+
 public class Watermelon extends Fruit{
 
 	public Watermelon() {
@@ -18,12 +20,8 @@ public class Watermelon extends Fruit{
 		BufferedImage [] fruitImages = new BufferedImage[2];
 		fruitImages[0] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
 		fruitImages[1] = new BufferedImage(240, 240, BufferedImage.TYPE_4BYTE_ABGR);
-		String path = System.getProperty("user.dir") + "/resources/images/watermelon.png";
-		File image = new File(path);
-		fruitImages[0] = ImageIO.read(image);
-		path = System.getProperty("user.dir") + "/resources/images/slicedWatermelon.png";
-		image = new File(path);
-		fruitImages[1] = ImageIO.read(image);
+		fruitImages[0] = ImageIO.read(ResourceLoader.load("/images/watermelon.png"));
+		fruitImages[1] = ImageIO.read(ResourceLoader.load("/images/slicedWatermelon.png"));
 		return fruitImages;
 		
 		
